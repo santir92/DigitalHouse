@@ -1,0 +1,179 @@
+*{
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: sans-serif;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+h2 {
+    font-size: 4vw;
+}
+
+h3 {
+    margin: 20px 0 0 0;
+    font-size: 3vw;
+}
+
+h5 {
+    font-size: 2vw;
+}
+
+hr {
+    width: 35vw;
+    margin: 0;
+}
+
+
+.main-section {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #D9D9D9;
+    width: 45vw;
+    height: 65vh;
+    border-radius: 12px;
+}
+
+.container label {
+    align-self: flex-start;
+    padding-left: 15px;
+    font-size: 2vw;
+    cursor: pointer;
+}
+
+
+.ingreso {
+    align-self: flex-start;
+    padding-left: 25px;
+}
+
+
+.btn-inicio {
+    background-color: #D9D9D9;
+    border: none;
+    width: 20vw;
+    height: 6vw;
+    border-radius: 30px;
+    font-size: 3vw;
+}
+
+.datos {
+    background-color: #D9D9D9;
+    border: none;
+    width: 35vw;
+    padding-top: 7px;
+}
+
+.registro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #9CDB86;
+    width: 45vw;
+    height: 65vh;
+    border-radius: 12px;
+    position: relative;
+}
+
+.invitacion {
+    text-align: center;
+    padding: 20px;
+    font-size: 2.5vw;
+}
+
+.btn-registro {
+    background-color: #9CDB86;
+    border: none;
+    width: 20vw;
+    height: 6vw;
+    border-radius: 30px;
+    margin-bottom: 10px;
+    font-size: 3vw;
+}
+
+
+@media (min-width: 600px) {
+
+    .container {
+        height: 90vh;
+    }
+    .registro {
+        height: 90vh;
+    }
+    
+}
+
+
+@media (min-width: 1000px) {
+
+    .container {
+       width: 35vw;
+       height: 90vh;
+    }
+    .registro{
+        width: 35vw;
+        height: 90vh;
+    }
+        
+    h2 {
+        font-size: 3vw;
+    }
+
+    h3 {
+        font-size: 2vw;
+    }
+
+    h5 {
+        font-size: 1.5vw;
+    }
+
+    hr {
+        width: 30vw;
+    }
+
+    .datos {
+        width: 25vw;
+    }
+
+
+    .btn-inicio {
+        font-size: 2vw;
+        width: 10vw;
+        height: 3vw;
+    }
+
+    .invitacion {
+        font-size: 2vw;
+    }
+
+    .container label {
+        margin-top: 15px;
+        font-size: 1.5vw;
+    }
+
+    .btn-registro {
+        font-size: 2vw;
+        width: 15vw;
+        height: 3.3vw;
+        margin: 30px 0 20px 0;
+    }
+}

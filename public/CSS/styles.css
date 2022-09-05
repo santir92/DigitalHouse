@@ -1,0 +1,313 @@
+/* * {
+    box-sizing: border-box;
+} */
+.row{
+    margin: 0;
+}
+
+/* Widgets */
+
+.widget{
+    width: 80px;
+    height: 80px;
+}
+
+#chat-icon{
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+}
+
+#calendar-icon{
+    position: fixed;
+    left: 50px;
+    bottom: 50px;
+} 
+
+body {
+    background-image: url('/images/Plato1.jpg'); 
+    background-attachment: fixed;  
+    color: white;
+
+    /* background-attachment: fixed; */
+    /* width: 100vw; */
+    /* height: 100vh; */
+}
+
+/* SECCIÓN SUPERIOR */
+
+#fullscreen{
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    right: 30px;
+    top: 100px;
+}
+
+#seccion-superior{
+height: 90vh;
+box-sizing: border-box;
+
+/* display: block; */
+
+/* background-color: aqua; */
+/* width: 50vw; */
+}
+
+.anterior{
+    height: 5vh;
+}
+
+/* Imágenes */
+
+#imagen-seleccionada-superior{
+/* margin: auto; */
+box-sizing: border-box;
+background-color: black;
+width: 80vw;
+height: 80vh;
+margin-left: 10vw;
+background-color: rgba(0,0,0,0.75);
+}
+
+#primera-superior{
+height: 70vh;
+}
+
+#segunda-superior{
+height: 70vh;
+}
+
+
+
+/* SECCIÓN INFERIOR */
+
+#seccion-inferior{
+/* background-color: rgba(0, 0, 0, 0.75); */
+/* background-color: white; */
+height: 88.5vh;
+
+}
+
+/* Barra de selección */
+#barra-de-seleccion-superior{
+    box-sizing: border-box;
+    background-color: rgba(0,0,0,0.75);
+    height: 8vh;
+    /* font-size: 36px; */
+    font-size: 2.25vw;
+    text-transform: uppercase;
+    font-weight: bold;
+    /* margin: 0; */
+    margin-bottom: 0.5vh;
+    }
+
+#visual-inferior{
+    background-color: rgba(0, 0, 0, 0.75);
+
+}
+
+/* Título */
+#titulo-seccion-inferior{
+/* background-color: blue; */
+height: 10vh;
+margin: 0px;
+font-size: 2.5vw;
+text-transform: uppercase;
+font-weight: 100;
+
+}
+
+/* Imagen */
+#imagen-seleccionada-inferior{
+background-color: rgba(0,0,0,0.75);
+height: 70vh;
+margin: 0px;
+display: flex;
+align-items: center;
+} 
+
+/* Barra de selección */
+
+#barra-de-seleccion-inferior{
+
+    text-transform: uppercase;
+    font-weight: bold;
+    height: 70vh;
+    text-align: center;
+    font-size: 2.5vw;
+    margin: 0px;
+    /* background-color: blue; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+ .seleccion-inferior{
+    /* height: 17.5vh; */
+    /* text-align: center; */
+    margin: 0;
+    /* vertical-align: middle;
+    align-content: space-between; */
+} 
+
+.seleccion-inferior{
+    display: flex;
+    text-align: center;
+    vertical-align: middle;
+    flex-grow: 1;
+}
+.seleccionado-inferior{
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.75);
+    text-align: center;
+    vertical-align: middle;
+    flex-grow: 1;
+}
+
+
+#imagen-inferior{
+    text-align: center;
+    height: 60vh;
+    width: 53vw;
+    margin: auto;
+    display: block;
+}
+
+/* FOOTER */
+
+.barra-de-seleccion {
+    box-sizing: border-box;
+    background-color: rgba(0,0,0,0.75);
+       margin-bottom: 0.5vh;
+    }
+
+ul {
+    list-style-type: none;
+}
+
+footer{
+    margin-top:1vh ;
+}
+
+.maps {
+    font-size: 5.5vw;
+    margin-top: 15px;
+}
+
+
+
+/* DISPOSITIVOS MEDIANOS */
+
+
+@media (max-width: 768px){
+
+    .widget{
+        height: 50px;
+        width: 50px;
+        
+    }
+    #chat-icon{
+        right: 20px;
+        bottom: 20px;
+    }
+    
+    #calendar-icon{
+        left: 20px;
+        bottom: 20px;
+    } 
+
+    #fullscreen{
+        width: 40px;
+        height: 40px;
+        right: 10px;
+        top: 100px;
+    }
+
+    #primera-superior{
+        width: 55vw;
+        }
+
+    #segunda-superior{
+        display: none;
+        }
+
+    #barra-de-seleccion-superior{
+
+        font-size: 3.75vw;
+        }
+
+    #titulo-seccion-inferior{
+
+        font-size: 4vw;    
+        }
+
+
+    #barra-de-seleccion-inferior{
+
+        font-size: 5vw;    
+
+    }
+
+    #imagen-inferior{
+        width: 70%;
+    }
+
+    #seccion-inferior{
+        height: 158.5vh;
+    }
+
+    #visual-inferior{
+        height: 150vh;
+    }
+
+}
+
+
+/* DISPOSITIVOS PEQUEÑOS */
+
+@media (max-width: 480px){
+    #primera-superior{
+        width: 80vw;
+        }
+
+    #segunda-superior{
+        display: none;
+        }
+
+
+    #barra-de-seleccion-superior{
+        font-size: 3.25vw;
+        }
+
+    #titulo-seccion-inferior{
+
+        font-size: 5vw;    
+        }
+
+    #barra-de-seleccion-inferior{
+
+        font-size: 7vw;
+        /* width: 200px;        */
+    
+    }
+
+    #imagen-inferior{
+        width: 90%;
+    }
+    #seccion-inferior{
+        height: 9vh;
+    }
+
+    #visual-inferior{
+        height: 13vh;
+    }
+    #seccion-inferior{
+        height: 158.5vh;
+    }
+
+    #visual-inferior{
+        height: 150vh;
+    }
+
+}
