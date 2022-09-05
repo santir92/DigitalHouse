@@ -19,7 +19,7 @@ app.listen(process.env.PORT || 3001, () => {
 
 // Vista home
 
-app.get('/', (req, res) => {
+app.get('/restaurante', (req, res) => {
     res.sendFile(path.join(__dirname, '/views/restaurante.html'))
 })
 
