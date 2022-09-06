@@ -1,0 +1,50 @@
+
+body {
+    
+    background-image: url("https://images.squarespace-cdn.com/content/v1/575e7db422482eb36c507389/1593777176399-JIGKJ29Z0ANIPKUK73Z3/052_Architecture_TCunniffe.jpg");
+    
+    
+  }
+
+#barra-de-seleccion-superior {
+    display: flex;
+    justify-content: space-around;
+    
+}
+
+.enlaces {
+    display: flex;
+    list-style-type: none;
+    font-size:large
+}
+
+.carrito {
+    display:flex;
+    justify-content: space-around;
+    background-color: #F4F6F6;
+    opacity: 0.9;
+    width: 80vw;
+    align-items: center;
+    margin: auto;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
+.confirmar {
+    background-color: #D7DBDD;
+    text-align: center;
+    
+}
+
+.total {
+    font-weight: bold;
+    text-align: left;
+}
+
+.izq {
+    text-align: left;
+}
+
+.botonx {
+    text-align: left;
+}

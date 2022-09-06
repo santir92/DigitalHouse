@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/carrito.css"> </link>
+    <title>Carrito de Compras</title>
+</head>
+<body>
+    
+    <header>
+        <div id = 'barra-de-seleccion-superior' class = 'row justify-content-evenly align-items-center'>
+            <p class = 'col-2 row justify-content-center'> Logo </p>
+            <p class = 'col-2 row justify-content-center'> Inicio </p>
+            <p class = 'col-2 row justify-content-center'> Nosotros </p>                
+            <p class = 'col-2 row justify-content-center'> Opiniones </p>                 
+            <p class = 'col-2 row justify-content-center'> Reservas </p>
+            <p class = 'col-2 row justify-content-center'> Login </p>
+        </div>              
+
+    </header>
+    
+<div class="carrito">
+    
+            
+        
+     
+    <div class="detalle">
+        <h2>Su Reserva:</h2>
+        <br>    
+        <div class="botonx">
+            <button id="boton" type="button">X</button>
+         </div>
+        <p><input type="text" name="cantidad_adultos" size="1" maxlength="2"/>Adultos </p>
+        <p>Trekking Medio Día</p>
+        <br>
+        <p class="total">Total:    $4000</p>
+        <br>
+        <div class="botonx">
+            <button id="boton" type="button">X</button>
+         </div>
+        <p><input type="text" name="cantidad_menores" size="1" maxlength="2"/>Niños </p> 
+        <p>Trekking Medio Día</p>
+        <br>
+        <p class="total">Total:    $3000</p>
+    
+    </div>
+
+     
+
+    <div class="confirmar">
+    
+        <p>Ingrese codigo de descuento</p>
+        <input type="text" name="codigo" size="18" maxlength="10"/>
+        <br>
+        <br>
+        <p class="izq">Subtotal: $7000</p>
+        <p class="izq">Descuento: $1000</p>
+        <br>    
+        <p class="total" >Total: $6000</p>
+
+        <button id="boton" type="button" onclick="alert('Confirmaste la reserva!')">CONFIRMAR</button>
+    
+    </div>
+
+    
+        
+</div>
+
+
+        
+
+
+      </div>
+
+
+</body>
+</html>
+
