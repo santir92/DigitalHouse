@@ -58,6 +58,7 @@ body {
     font-weight: bold;
     /* margin: 0; */
     margin-bottom: 0.5vh;
+    color:white
     }
     .barra-de-seleccion {
         box-sizing: border-box;
@@ -71,6 +72,7 @@ body {
     
     footer{
         margin-top:1vh ;
+        color:white
     }
     
     .maps {
