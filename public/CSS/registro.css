@@ -177,3 +177,33 @@ hr {
         margin: 30px 0 20px 0;
     }
 }
+#barra-de-seleccion-superior{
+    box-sizing: border-box;
+    background-color: rgba(0,0,0,0.75);
+    height: 8vh;
+    /* font-size: 36px; */
+    font-size: 2.25vw;
+    text-transform: uppercase;
+    font-weight: bold;
+    /* margin: 0; */
+    margin-bottom: 0.5vh;
+    }
+    .barra-de-seleccion {
+        box-sizing: border-box;
+        background-color: rgba(0,0,0,0.75);
+           margin-bottom: 0.5vh;
+        }
+    
+    ul {
+        list-style-type: none;
+    }
+    
+    footer{
+        margin-top:1vh ;
+    }
+    
+    .maps {
+        font-size: 5.5vw;
+        margin-top: 15px;
+    }
+    
