@@ -8,26 +8,26 @@ body {
     margin: 0;
 }
 
-a {
+.a-css {
     text-decoration: none;
     color: #000;
 }
 
-h2 {
+.h2-css {
     font-size: 4vw;
 }
 
-h3 {
+.h3-css {
     margin: 30px 0 0 0;
     font-size: 3vw;
 }
 
-h5 {
+.h5-css {
     font-size: 2vw;
     cursor: pointer;
 }
 
-hr {
+.hr-css {
     width: 35vw;
     margin: 0;
 }
@@ -42,7 +42,7 @@ hr {
     margin: 0;
 }
 
-.container {
+.container-css {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -112,7 +112,7 @@ hr {
 
 @media (min-width: 800px) {
 
-    .container {
+    .container-css {
         width: 35vw;
         height: 90vh;
     }
@@ -122,19 +122,19 @@ hr {
     }
 
         
-    h2 {
+    .h2-css {
         font-size: 3vw;
     }
 
-    h3 {
+    .h3-css {
         font-size: 2vw;
     }
 
-    h5 {
+    .h5-css {
         font-size: 1.5vw;
     }
 
-    hr {
+    .hr-css {
         width: 30vw;
     }
 
@@ -172,6 +172,11 @@ hr {
         /* margin: 0; */
         margin-bottom: 0.5vh;
         color:white
+        }
+
+        #barra-de-seleccion-superior p > a {
+            text-decoration: none;
+            color: #fff;
         }
         .barra-de-seleccion {
             box-sizing: border-box;
