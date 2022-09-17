@@ -8,26 +8,51 @@ body {
     margin: 0;
 }
 
-a {
+.barra-superior {
+    box-sizing: border-box;
+    background-color: rgba(0,0,0,0.75);
+    height: 8vh;
+    font-weight: bold;
+    margin-bottom: 0.5vh;
+    color:#FFF;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.items {
+    width: 20%;
+    margin: 0;
+    font-size: 3vw;
+}
+
+
+
+.barra-superior p > a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+.a-css {
     text-decoration: none;
     color: #000;
 }
 
-h2 {
+.h2-css {
     font-size: 4vw;
 }
 
-h3 {
+.h3-css {
     margin: 30px 0 0 0;
     font-size: 3vw;
 }
 
-h5 {
+.h5-css {
     font-size: 2vw;
     cursor: pointer;
 }
 
-hr {
+.hr-css {
     width: 35vw;
     margin: 0;
 }
@@ -42,7 +67,7 @@ hr {
     margin: 0;
 }
 
-.container {
+.container-css {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -108,11 +133,32 @@ hr {
     margin-bottom: 10px;
     font-size: 3vw;
 }
-
-
+        
+        ul {
+            list-style-type: none;
+        }
+        
+        .main-footer {
+            background-color: rgba(0,0,0,0.75);
+            text-align: center;
+            display: flex;
+            flex-flow: column wrap;
+    
+        }
+        .footer{
+            margin-top:2vh ;
+            color: #fff;
+        }
+    
+        .footer ul {
+            padding: 0;
+            cursor: pointer;
+        }
+    
+        
 @media (min-width: 800px) {
 
-    .container {
+    .container-css {
         width: 35vw;
         height: 90vh;
     }
@@ -122,19 +168,19 @@ hr {
     }
 
         
-    h2 {
+    .h2-css {
         font-size: 3vw;
     }
 
-    h3 {
+    .h3-css {
         font-size: 2vw;
     }
 
-    h5 {
+    .h5-css {
         font-size: 1.5vw;
     }
 
-    hr {
+    .hr-css {
         width: 30vw;
     }
 
@@ -159,34 +205,27 @@ hr {
         height: 3.3vw;
         margin: 50px 0 0 0;
     }
+
+    .items {
+        font-size: 1.6vw;
+    }
+    
+    .main-footer {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+    }
+
+    .footer {
+        width: 30%;
+    }
+
+
+    .footer i {
+        margin-bottom: 3vh;
+    }
         
     }
-    #barra-de-seleccion-superior{
-        box-sizing: border-box;
-        background-color: rgba(0,0,0,0.75);
-        height: 8vh;
-        /* font-size: 36px; */
-        font-size: 2.25vw;
-        text-transform: uppercase;
-        font-weight: bold;
-        /* margin: 0; */
-        margin-bottom: 0.5vh;
-        color:white
-        }
-        .barra-de-seleccion {
-            box-sizing: border-box;
-            background-color: rgba(0,0,0,0.75);
-               margin-bottom: 0.5vh;
-            }
-        
-        ul {
-            list-style-type: none;
-        }
-        
-        footer{
-            margin-top:1vh ;
-            color:white
-        }
         
         .maps {
             font-size: 5.5vw;
