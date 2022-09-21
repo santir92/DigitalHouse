@@ -2,6 +2,7 @@
 
 const express = require('express')
 const path = require('path')
+const router = require('./src/routes/index.routes')
 
 // Definición app
 
@@ -11,6 +12,11 @@ const app = express()
 
 app.use(express.static(path.join(__dirname, '/public')))
 
+//templete engine
+
+app.set('views', path.join(__dirname, './src/views'))
+app.set('view engine', 'ejs')
+
 // Poner a correr el servidor en el puerto 3001
 
 app.listen(process.env.PORT || 3001, () => {
@@ -19,23 +25,12 @@ app.listen(process.env.PORT || 3001, () => {
 
 // Vista home
 
-app.get('/restaurante', (req, res) => {
-    res.sendFile(path.join(__dirname, '/views/restaurante.html'))
-})
+app.get('/', router);
 
-app.get('/login', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './views/login.html'));
-});
+app.get('/restaurante', router)
 
-app.get('/carrito', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './views/carrito.html'));
-});
+app.get('/carrito', router);
 
+app.get('/register', router);
 
-app.get('/register', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './views/registro.html'));
-});
-
-app.get('/', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './views/home.html'));
-});
+app.get('/login', router);
