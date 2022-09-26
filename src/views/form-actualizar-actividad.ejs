@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/43ee8fadd4.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/CSS/crear-actualizar-form.css">
+    <title>Actualizar reserva</title>
+</head>
+<body>
+
+    <%- include ('./partials/header.ejs') %>
+    <div class="div1">
+        <h1> Estas actualizando la actividad:</h1>
+
+        <form action="create" method="POST">
+            <section class="form-section">
+                <article class="form-items">
+                    <label for="nombre">Nombre de la actividad:</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Nombre de la actividad" class="form-input">
+                </article>
+                <article class="form-items">
+                    <label for="precio">Precio:</label>
+                    <input type="text" id="precio" name="precio" placeholder="Precio de la actividad" class="form-input">
+                </article>
+                <article class="form-items">
+                    <label for="participantes">Minimo de participantes:</label>
+                    <input type="text" id="participantes" name="participantes" placeholder="Cantidad de participantes" class="form-input">
+                </article>
+                <article class="form-items">
+                    <label for="categoria">Categoria:</label>
+                    <select name="categoria" id="categoria" class="form-input">
+                        <option value="">Escoge la categoria</option>
+                        <option value="nuevo">Nuevo</option>
+                        <option value="oferta">Actividad de temporada</option>
+                    </select>
+                </article>
+                <article class="form-items">
+                    <label for="descripcion">Descripcion:</label>
+                    <textarea id="descripcion" name="descripcion" class="text-area" > </textarea>
+                </article>
+            </section>
+            
+            <button type="submit" class="form-button">Actualizar actividad</button>
+            
+        </form>
+    </div>
+
+    <%- include('./partials/footer.ejs') %>
+    
+</body>
+</html>

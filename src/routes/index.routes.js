@@ -5,9 +5,8 @@ const controller = require('../controllers/controller')
 
 router.get("/", controller.home)
 
-router.get('/restaurante', controller.restaurante);
-
-router.get('/carrito', controller.carrito);
+//vista del restaurante
+//router.get('/restaurante', controller.restaurante);
 
 router.get("/register", controller.register );
 

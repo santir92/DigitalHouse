@@ -3,6 +3,11 @@
 const express = require('express')
 const path = require('path')
 const router = require('./src/routes/index.routes')
+const actividadesRouter = require('./src/routes/actividades.routes')
+const reservasRouter = require('./src/routes/reservas.routes')
+//
+const methodOverride = require('method-override')
+
 
 // Definición app
 
@@ -11,7 +16,10 @@ const app = express()
 // Indicar que la carpeta public es de recursos estáticos
 
 app.use(express.static(path.join(__dirname, '/public')))
-
+// Indica que se pueden codificar archivos y enviar al Back
+app.use(express.urlencoded({extended:false}));
+app.use(express.json());
+app.use(methodOverride('_method'))
 //templete engine
 
 app.set('views', path.join(__dirname, './src/views'))
@@ -23,14 +31,10 @@ app.listen(process.env.PORT || 3001, () => {
     console.log('3001')
 })
 
-// Vista home
+// Vistas
+app.use('/', router);
 
-app.get('/', router);
+app.use('/actividades', actividadesRouter)
 
-app.get('/restaurante', router)
+app.use ('/carrito', reservasRouter)
 
-app.get('/carrito', router);
-
-app.get('/register', router);
-
-app.get('/login', router);
