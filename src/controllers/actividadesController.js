@@ -22,7 +22,7 @@ create: (req, res) => {
 		"id": idNuevoProducto,
 		"nombre": datos.nombre,
 		"precio": parseInt(datos.precio),
-		"calorias": parseInt(datos.calorias),
+		"participantes": parseInt(datos.participantes),
 		"categoria": datos.categoria,
 		"descripcion": datos.descripcion,
 		"image": imagenNuevoProducto
@@ -39,6 +39,37 @@ create: (req, res) => {
 update: (req, res) => {
 	res.render('form-actualizar-actividad')
 }
+
+/* actualizar: (req, res) =>{
+let idActividad = req.params.id;
+let datos = req.body;
+
+for (let o of actividades){
+    if (o.id == idActividad){
+        o.nombre = datos.nombre;
+        o.precio = parseInt(datos.precio);
+        o.participantes = parseInt(datos.participantes);
+		o.categoria = datos.categoria;
+		o.descripcion = datos.descripcion;
+		o.image = datos.image;
+        break;
+    }
+}}
+)
+fs.writeFileSync(productsFilePath,JSON.stringify(nuevaLista, null, " "),'utf-8');
+res.redirect('/');
+
+
+delete: (req, res) =>{
+    let idActividad = req.params.id;
+    let nuevaLista = actividades.filter (function(e){
+        return e.id != idActividad;
+    })
+})
+
+fs.writeFileSync(productsFilePath,JSON.stringify(nuevaLista, null, " "),'utf-8');
+res.redirect('/');
+*/
 
 }
 module.exports = controller;

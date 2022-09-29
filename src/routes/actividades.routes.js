@@ -10,7 +10,11 @@ router.get('/create', controller.create)
 //router.post('/create', controller.store)
 
 //actualizar actividad
-router.get('/update', controller.update)
+router.get('/update', controller.update);
+//router.put("/:id/actualizar", controller.actualizar);
+
+//eliminar actividad
+//router.delete("/:id/delete", controller.delete);
 
 
 
