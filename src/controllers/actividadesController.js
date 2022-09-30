@@ -8,6 +8,9 @@ const path = require('path');
 
 const controller = {
 
+activities: (req, res) => {
+    res.render('activities')
+},
 
 create: (req, res) => {
     res.render('form-crear-actividad')

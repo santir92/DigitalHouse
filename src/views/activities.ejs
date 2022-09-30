@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- FONT AWESOME -->
+    <script src="https://kit.fontawesome.com/43ee8fadd4.js" crossorigin="anonymous"></script>
+    <!-- LORDICON -->
+    <script src="https://cdn.lordicon.com/pzdvqjsp.js"></script>
+    <!-- ESTILOS PROPIOS -->
+    <link rel="stylesheet" href="/CSS/activities.css">
+    <title>Crear actividad</title>
+</head>
+<body>
+
+    <%- include ('./partials/header.ejs') %>
+
+    <h1> Actividades</h1>
+    <section class="card">
+        <div class="card-activitie">
+            <a href="" class="card-items"> <!--Ruta de donde esta el producto en detalle-->
+                <img class="image-activitie" src="/images/actividades/hiking.jpg" alt="imagen de actividad">
+                <article >
+                    <h2>Actividad: Hiking</h2>
+                    <span>Participantes: 6</span>
+                    <p>Precio: $40.000</p>
+                    <p>Descripcion: Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis obcaecati eligendi, consequatur iste quo minus labore quis voluptatem odio quaerat, ipsa dolor fuga soluta, veritatis quas quasi! Ipsa, reiciendis iste?
+                    </p>
+                </article>
+            </a>
+        </div>
+        
+        <div class="card-activitie">
+            <a href="" class="card-items"> <!--Ruta de donde esta el producto en detalle-->
+                <img class="image-activitie" src="/images/actividades/cabalgata.jpg" alt="imagen de actividad">
+                <article >
+                    <h2>Actividad: Cabalgata</h2>
+                    <span>Participantes: 10</span>
+                    <p>Precio: $120.000</p>
+                    <p>Descripcion: Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis obcaecati eligendi, consequatur iste quo minus labore quis voluptatem odio quaerat, ipsa dolor fuga soluta, veritatis quas quasi! Ipsa, reiciendis iste?
+                    </p>
+                </article>
+            </a>
+        </div>
+        <div class="card-activitie">
+            <a href="" class="card-items"> <!--Ruta de donde esta el producto en detalle-->
+                <img class="image-activitie" src="/images/actividades/cabalgata.jpg" alt="imagen de actividad">
+                <article >
+                    <h2>Actividad: Cabalgata</h2>
+                    <span>Participantes: 10</span>
+                    <p>Precio: $120.000</p>
+                    <p>Descripcion: Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis obcaecati eligendi, consequatur iste quo minus labore quis voluptatem odio quaerat, ipsa dolor fuga soluta, veritatis quas quasi! Ipsa, reiciendis iste?
+                    </p>
+                </article>
+            </a>
+        </div>
+    </section>
+    <a type="submit" class="card-button" href="/actividades/create">Nueva actividad</a>
+    
+
+    <%- include('./partials/footer.ejs') %>
+    
+</body>
+</html>
