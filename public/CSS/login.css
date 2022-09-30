@@ -1,15 +1,16 @@
-*{
+*, ::after, ::before {
     box-sizing: border-box;
 }
 
 
 body {
+    background-image: url("https://images.squarespace-cdn.com/content/v1/575e7db422482eb36c507389/1593777176399-JIGKJ29Z0ANIPKUK73Z3/052_Architecture_TCunniffe.jpg");
     font-family: sans-serif;
     margin: 0;
 }
 
 .barra-superior {
-    box-sizing: border-box;
+    
     background-color: rgba(0,0,0,0.75);
     height: 14vh;
     font-weight: bold;
