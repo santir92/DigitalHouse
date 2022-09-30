@@ -18,7 +18,7 @@
     <div class="div1">
         <h1> Estas actualizando la actividad:</h1>
 
-        <form action="create" method="POST">
+        <form action="create" method="POST" enctype="multipart/form-data">
             <section class="form-section">
                 <article class="form-items">
                     <label for="nombre">Nombre de la actividad:</label>
@@ -43,6 +43,12 @@
                 <article class="form-items">
                     <label for="descripcion">Descripcion:</label>
                     <textarea id="descripcion" name="descripcion" class="text-area" > </textarea>
+                </article>
+                <article class="form-items">
+                </article>
+                <article class="form-items">
+                    <label for="cargarImagen">Cargar imagen:</label>
+                    <input type="file" id="cargarImagen" name="cargarImagen" multiple class="form-input">
                 </article>
             </section>
             
