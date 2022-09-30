@@ -11,7 +11,7 @@ body {
 .barra-superior {
     box-sizing: border-box;
     background-color: rgba(0,0,0,0.75);
-    height: 8vh;
+    height: 14vh;
     font-weight: bold;
     margin-bottom: 0.5vh;
     color:#FFF;

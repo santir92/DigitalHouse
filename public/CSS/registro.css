@@ -11,7 +11,7 @@ body {
 .barra-superior {
 	box-sizing: border-box;
     background-color: rgba(0,0,0,0.75);
-    height: 8vh;
+    height: 14vh;
 	font-weight: bold;
 	margin-bottom: 0.5vh;
 	color:#FFF;
@@ -28,10 +28,10 @@ body {
 
 
 
-	.barra-superior p > a {
-            text-decoration: none;
-            color: #fff;
-        }
+.barra-superior p > a {
+    text-decoration: none;
+    color: #fff;
+}
 
 .a-css {
     text-decoration: none;
@@ -173,6 +173,12 @@ ul {
     
 }
 
+@media (min-width: 800px) {
+    .items {
+        font-size: 1.6vw;
+    }    
+}
+
 
 @media (min-width: 1000px) {
 
@@ -227,9 +233,7 @@ ul {
         height: 3.3vw;
         margin: 30px 0 20px 0;
     }
-    .items {
-        font-size: 1.6vw;
-    }
+    
     .main-footer {
         display: flex;
         flex-flow: row wrap;
