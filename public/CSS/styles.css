@@ -83,7 +83,7 @@ height: 70vh;
 /* SECCIÓN INFERIOR */
 
 #seccion-inferior{
-/* background-color: rgba(0, 0, 0, 0.75); */
+background-color: rgba(0, 0, 0, 0.75); 
 /* background-color: white; */
 height: 88.5vh;
 
@@ -101,6 +101,17 @@ height: 88.5vh;
 	align-items: center;
 	text-align: center;
 }
+#barra-de-seleccion-superior{
+    box-sizing: border-box;
+    background-color: rgba(0,0,0,0.75);
+    height: 8vh;
+    /* font-size: 36px; */
+    font-size: 2.25vw;
+    text-transform: uppercase;
+    font-weight: bold;
+    /* margin: 0; */
+    margin-bottom: 0.5vh;
+    }
 
 .items {
 	width: 20%;

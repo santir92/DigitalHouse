@@ -4,9 +4,7 @@ const controller = require('../controllers/controller')
 
 
 router.get("/", controller.home)
-
-//vista del restaurante
-//router.get('/restaurante', controller.restaurante);
+router.get('/:actividad', controller.actividad);
 
 router.get("/register", controller.register );
 

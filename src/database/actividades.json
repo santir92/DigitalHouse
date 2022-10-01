@@ -1,0 +1,26 @@
+[
+    {
+        "nombre": "restaurante",
+        "imgPrincipal": "/actividades/restaurante.jpg",
+        "descripcion": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi debitis delectus porro iure quod cum placeat autem vero nobis sint aperiam recusandae, laboriosam voluptatibus consequuntur asperiores deserunt quaerat atque. Et? Descripción restaurante V",
+        "precio": "Precio restaurante",
+        "horario": "Horario restaurante",
+        "descuentos": "Descuentos restaurante"
+    },
+    {
+        "nombre": "spa",
+        "imgPrincipal": "/actividades/restaurante.jpg",
+        "descripcion": "Descripción spa",
+        "precio": "Precio spa",
+        "horario": "Horario spa",
+        "descuentos": "Descuento spa"
+    },
+    {
+        "nombre": "excursiones",
+        "imgPrincipal": "/actividades/hiking.jpg",
+        "descripcion": "Descripción excusriones",
+        "precio": "Precio excusriones",
+        "horario": "Horario excursiones",
+        "descuentos": "Descuento excursiones"
+    }
+]
