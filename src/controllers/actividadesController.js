@@ -1,15 +1,14 @@
 const fs = require('fs');
 const path = require('path');
 
-//esta variable nos muestra donde se encuntra la data de los productos
-//const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
-//esta variable hace que se pueda leer el archivo json
-//const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+//esta variable nos muestra donde se encuntra la data de las actividades
+const actividades = JSON.parse(fs.readFileSync(path.join(__dirname, '../database/actividades.json'), 'utf-8')) 
 
 const controller = {
 
 activities: (req, res) => {
-    res.render('activities')
+    //vista con todas las actividades
+    res.render('activities', {actividades})
 },
 
 create: (req, res) => {

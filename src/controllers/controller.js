@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 
-const actividades = JSON.parse(fs.readFileSync(path.join(__dirname, '../database/actividades.json'))) 
+const actividades = JSON.parse(fs.readFileSync(path.join(__dirname, '../database/actividades.json'), 'utf-8')) 
 
 const controller = {
     home: (req, res) => {

@@ -18,43 +18,20 @@
 
     <h1> Actividades</h1>
     <section class="card">
+        <% for(let a of actividades) { %>
         <div class="card-activitie">
             <a href="" class="card-items"> <!--Ruta de donde esta el producto en detalle-->
-                <img class="image-activitie" src="/images/actividades/hiking.jpg" alt="imagen de actividad">
+                <img class="image-activitie" src="/images/actividades/<%= a.imgPrincipal  %>" alt="imagen de actividad">
                 <article >
-                    <h2>Actividad: Hiking</h2>
-                    <span>Participantes: 6</span>
-                    <p>Precio: $40.000</p>
-                    <p>Descripcion: Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis obcaecati eligendi, consequatur iste quo minus labore quis voluptatem odio quaerat, ipsa dolor fuga soluta, veritatis quas quasi! Ipsa, reiciendis iste?
+                    <h2>Actividad: <%= a.nombre %></h2>
+                    <span>Participantes: <%= a.participantes%></span>
+                    <p>Precio: $<%= a.precio  %></p>
+                    <p>Descripcion: <%= a.descripcion %>
                     </p>
                 </article>
             </a>
         </div>
-        
-        <div class="card-activitie">
-            <a href="" class="card-items"> <!--Ruta de donde esta el producto en detalle-->
-                <img class="image-activitie" src="/images/actividades/cabalgata.jpg" alt="imagen de actividad">
-                <article >
-                    <h2>Actividad: Cabalgata</h2>
-                    <span>Participantes: 10</span>
-                    <p>Precio: $120.000</p>
-                    <p>Descripcion: Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis obcaecati eligendi, consequatur iste quo minus labore quis voluptatem odio quaerat, ipsa dolor fuga soluta, veritatis quas quasi! Ipsa, reiciendis iste?
-                    </p>
-                </article>
-            </a>
-        </div>
-        <div class="card-activitie">
-            <a href="" class="card-items"> <!--Ruta de donde esta el producto en detalle-->
-                <img class="image-activitie" src="/images/actividades/cabalgata.jpg" alt="imagen de actividad">
-                <article >
-                    <h2>Actividad: Cabalgata</h2>
-                    <span>Participantes: 10</span>
-                    <p>Precio: $120.000</p>
-                    <p>Descripcion: Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis obcaecati eligendi, consequatur iste quo minus labore quis voluptatem odio quaerat, ipsa dolor fuga soluta, veritatis quas quasi! Ipsa, reiciendis iste?
-                    </p>
-                </article>
-            </a>
-        </div>
+        <% } %>
     </section>
     <a type="submit" class="card-button" href="/actividades/create">Nueva actividad</a>
     
