@@ -74,17 +74,19 @@
 
                 <!-- Título sección inferior -->
                 <p id = 'titulo-seccion-inferior' class = 'row justify-content-center align-items-center'> ¡Entérate de los detalles! </p> 
+  
                 
                 <!-- Barra de selección inferior -->
                 <span id = 'barra-de-seleccion-inferior' class = 'col-xl-5 col-xs-12'> 
-                    <p class = 'seleccion-inferior seleccionado-inferior align-items-center justify-content-center' > ¡Actividad <%= actividadParticular.categoria%>! </p>
+                    <p class = 'seleccion-inferior align-items-center justify-content-center'> ¡Actividad <%= actividadParticular.categoria%>! </p>
                     <p class = 'seleccion-inferior align-items-center justify-content-center'> Desde $<%= actividadParticular.precio%> </p>
                     <p class = 'seleccion-inferior align-items-center justify-content-center'>Para <%= actividadParticular.participantes%> personas</p>
+                    <!-- <p class = 'seleccion-inferior align-items-center justify-content-center' style="background-color: blue">Para <%= actividadParticular.participantes%> personas</p> -->
                     <!-- <p class = 'seleccion-inferior align-items-center justify-content-center'> ¿Alergias? </p> -->
                 </span>
 
                 <!-- Imagen seleccionada inferior -->
-                <div id = 'imagen-seleccionada-inferior' class = 'col-xl-7 col-xs-12 align-items-center justify-content-center'> 
+                <div id = 'derecho-inferior' class = 'col-xl-7 col-xs-12 align-items-center justify-content-center'> 
                     <!-- <img src = '/images/vegetariano.png' id = 'imagen-inferior'>  -->
                     <%= actividadParticular.descripcion%>
                 </div>      
