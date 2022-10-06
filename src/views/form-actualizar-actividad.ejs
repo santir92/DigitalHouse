@@ -10,7 +10,7 @@
     <script src="https://kit.fontawesome.com/43ee8fadd4.js" crossorigin="anonymous"></script>
     <!-- ESTILOS PROPIOS -->
     <link rel="stylesheet" href="/CSS/crear-actualizar-form.css">
-    <title>Actualizar reserva</title>
+    <title>Actualizar actividad</title>
 </head>
 <body>
 
@@ -18,7 +18,7 @@
     <div class="div1">
         <h1> Estas actualizando la actividad: <%= actividades.nombre %></h1>
 
-        <form action="actividades/update/<%= actividades.nombre %>?_method=PUT" method="POST" enctype="multipart/form-data">
+        <form action="/actividades/update/<%= actividades.nombre %>?_method=PUT" method="POST" >
             <section class="form-section">
                 <article class="form-items">
                     <label for="nombre">Nombre de la actividad:</label>

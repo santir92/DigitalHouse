@@ -11,6 +11,25 @@ activities: (req, res) => {
     res.render('activities', {actividades})
 },
 
+detalle: (req, res) => {
+    //vista con detalle actividad
+    let nombreActividad = req.params.nombre;
+
+    let actividadBuscada = null;
+
+    for (let o of actividades) {
+        if (o.nombre==nombreActividad){
+            actividadBuscada=o;
+            break
+        }
+    }
+    if (actividadBuscada != null){
+
+    res.render('detalle', {actividadBuscada: actividades})
+
+    res.send('Actividad no encontrada.');
+}},
+
 create: (req, res) => {
     res.render('form-crear-actividad')
 },
@@ -68,10 +87,9 @@ for (let o of actividades){
 		o.descripcion = datos.descripcion;
 		o.image = datos.image;
         break;
+        
     }
 }
-
-
 
 
 fs.writeFileSync((path.join(__dirname, '../database/actividades.json')),JSON.stringify(actividades, null, " "),'utf-8');

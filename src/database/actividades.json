@@ -10,17 +10,17 @@
  {
   "nombre": "Caminata",
   "imgPrincipal": "actividades/hiking.jpg",
-  "descripcion": "Unete a nuestro grupo de caminatas ecológicas, tenemos diferentes rutas donde conocerás paisajes naturales y también realizamos avistamiento de aves.",
+  "descripcion": "PRUEBA PRUEBA PRUEBA",
   "precio": 300,
-  "categoria": "Actividad de temporada",
+  "categoria": "oferta",
   "participantes": 6
  },
  {
-  "nombre": "Cabalgata",
+  "nombre": "Cabalgata44",
   "imgPrincipal": "actividades/cabalgata.jpg",
-  "descripcion": "Vive una experiencia donde podrás conocer pueblos cercanos y la biodiversidad de la naturaleza en todo esplendor",
+  "descripcion": " Vive una experiencia donde podrás conocer pueblos cercanos y la biodiversidad de la naturaleza en todo esplendor ",
   "precio": 500,
-  "categoria": "Actividad de temporada",
+  "categoria": "oferta",
   "participantes": 2
  }
 ]
