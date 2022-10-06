@@ -23,8 +23,8 @@ router.get('/create', controller.create)
 //router.post('/create', uploadFile.single('cargarImagen'),controller.store)
 
 //actualizar actividad
-router.get('/update', controller.update);
-//router.put("/:id/actualizar", controller.actualizar);
+router.get('/update/:nombre', controller.update);
+router.put("/update/:nombre", controller.actualizar);
 
 //eliminar actividad
 //router.delete("/:id/delete", controller.delete);

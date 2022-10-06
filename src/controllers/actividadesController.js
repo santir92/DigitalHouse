@@ -39,15 +39,28 @@ create: (req, res) => {
 },*/
 
 update: (req, res) => {
-	res.render('form-actualizar-actividad')
-}
+    let nombreActividad = req.params.nombre;
 
-/* actualizar: (req, res) =>{
-let idActividad = req.params.id;
+    let actividadBuscada = null;
+
+    for (let o of actividades) {
+        if (o.nombre==nombreActividad){
+            actividadBuscada=o;
+            break
+        }
+    }
+    if (actividadBuscada != null){
+        res.render ("form-actualizar-actividad.ejs", {actividades:actividadBuscada})
+    }
+	res.send('Actividad no encontrada.');
+},
+
+ actualizar: (req, res) =>{
+let nombreActividad = req.params.nombre;
 let datos = req.body;
 
 for (let o of actividades){
-    if (o.id == idActividad){
+    if (o.nombre== nombreActividad){
         o.nombre = datos.nombre;
         o.precio = parseInt(datos.precio);
         o.participantes = parseInt(datos.participantes);
@@ -56,13 +69,20 @@ for (let o of actividades){
 		o.image = datos.image;
         break;
     }
-}}
-)
-fs.writeFileSync(productsFilePath,JSON.stringify(nuevaLista, null, " "),'utf-8');
-res.redirect('/');
+}
 
 
-delete: (req, res) =>{
+
+
+fs.writeFileSync((path.join(__dirname, '../database/actividades.json')),JSON.stringify(actividades, null, " "),'utf-8');
+
+res.redirect('/')},
+
+};
+
+
+
+/*delete: (req, res) =>{
     let idActividad = req.params.id;
     let nuevaLista = actividades.filter (function(e){
         return e.id != idActividad;
@@ -73,5 +93,5 @@ fs.writeFileSync(productsFilePath,JSON.stringify(nuevaLista, null, " "),'utf-8')
 res.redirect('/');
 */
 
-}
+
 module.exports = controller;
