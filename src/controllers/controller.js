@@ -12,9 +12,13 @@ const controller = {
         let act = req.params.actividad
         // console.log(act)
         for (i = 0; i < actividades.length; i++){
-            if (actividades[i].nombre == act)
-                res.render('actividadDetalle', {actividadParticular: actividades[i]})
+            if (actividades[i].nombre == act){
+                console.log(act)
+                res.render('actividadDetalle', {actividadParticular: actividades[i]})}
+                
+
         }
+   
     },
    
     register: (req, res) => {

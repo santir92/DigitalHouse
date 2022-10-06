@@ -1,7 +1,7 @@
 [
     {
         "nombre": "Restaurante",
-        "imgPrincipal": "restaurante.jpg",
+        "imgPrincipal": "actividades/restaurante.jpg",
         "descripcion": "Disfruta de nuestra opción de restaurante con una gran variedad de platos para que chicos y grandes puedan degustar",
         "precio": 250,
         "categoria": "nuevo",
@@ -9,7 +9,7 @@
     },
     {
         "nombre": "Caminata",
-        "imgPrincipal": "hiking.jpg",
+        "imgPrincipal": "actividades/hiking.jpg",
         "descripcion": "Unete a nuestro grupo de caminatas ecológicas, tenemos diferentes rutas donde conocerás paisajes naturales y también realizamos avistamiento de aves.",
         "precio": 300,
         "categoria": "Actividad de temporada",
@@ -17,7 +17,7 @@
     },
     {
         "nombre": "Cabalgata",
-        "imgPrincipal": "cabalgata.jpg",
+        "imgPrincipal": "actividades/cabalgata.jpg",
         "descripcion": "Vive una experiencia donde podrás conocer pueblos cercanos y la biodiversidad de la naturaleza en todo esplendor",
         "precio": 500,
         "categoria": "Actividad de temporada",
