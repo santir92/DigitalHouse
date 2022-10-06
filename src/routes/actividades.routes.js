@@ -20,7 +20,7 @@ router.get('/', controller.activities)
 
 //crear una nueva actividad
 router.get('/create', controller.create)
-//router.post('/create', uploadFile.single('cargarImagen'),controller.store)
+router.post('/create', uploadFile.single('cargarImagen'),controller.store)
 
 //actualizar actividad
 router.get('/update', controller.update);

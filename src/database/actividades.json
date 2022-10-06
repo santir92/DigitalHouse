@@ -1,26 +1,47 @@
 [
-    {
-        "nombre": "Restaurante",
-        "imgPrincipal": "restaurante.jpg",
-        "descripcion": "Disfruta de nuestra opción de restaurante con una gran variedad de platos para que chicos y grandes puedan degustar",
-        "precio": 250,
-        "categoria": "nuevo",
-        "participantes": 2
-    },
-    {
-        "nombre": "Caminata",
-        "imgPrincipal": "hiking.jpg",
-        "descripcion": "Unete a nuestro grupo de caminatas ecológicas, tenemos diferentes rutas donde conocerás paisajes naturales y también realizamos avistamiento de aves.",
-        "precio": 300,
-        "categoria": "Actividad de temporada",
-        "participantes": 6
-    },
-    {
-        "nombre": "Cabalgata",
-        "imgPrincipal": "cabalgata.jpg",
-        "descripcion": "Vive una experiencia donde podrás conocer pueblos cercanos y la biodiversidad de la naturaleza en todo esplendor",
-        "precio": 500,
-        "categoria": "Actividad de temporada",
-        "participantes": 2
-    }
+ {
+  "nombre": "Restaurante",
+  "imgPrincipal": "restaurante.jpg",
+  "descripcion": "Disfruta de nuestra opción de restaurante con una gran variedad de platos para que chicos y grandes puedan degustar",
+  "precio": 250,
+  "categoria": "nuevo",
+  "participantes": 2
+ },
+ {
+  "nombre": "Caminata",
+  "imgPrincipal": "hiking.jpg",
+  "descripcion": "Unete a nuestro grupo de caminatas ecológicas, tenemos diferentes rutas donde conocerás paisajes naturales y también realizamos avistamiento de aves.",
+  "precio": 300,
+  "categoria": "Actividad de temporada",
+  "participantes": 6
+ },
+ {
+  "nombre": "Cabalgata",
+  "imgPrincipal": "cabalgata.jpg",
+  "descripcion": "Vive una experiencia donde podrás conocer pueblos cercanos y la biodiversidad de la naturaleza en todo esplendor",
+  "precio": 500,
+  "categoria": "Actividad de temporada",
+  "participantes": 2
+ },
+ {
+  "nombre": "asd",
+  "precio": "2999",
+  "participantes": "4",
+  "categoria": "nuevo",
+  "descripcion": " sdakjsbd"
+ },
+ {
+  "nombre": "caminata",
+  "precio": "1090",
+  "participantes": "2º",
+  "categoria": "nuevo",
+  "descripcion": "caminata por el lago de la zona "
+ },
+ {
+  "nombre": "",
+  "precio": "",
+  "participantes": "",
+  "categoria": "",
+  "descripcion": " "
+ }
 ]
