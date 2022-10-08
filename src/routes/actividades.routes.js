@@ -18,13 +18,16 @@ const uploadFile = multer ({storage: multerDiskStorage})
 // ver todas las actividades
 router.get('/', controller.activities)
 
+// ver detalle actividad
+router.get('detalle/:nombre', controller.detalle)
+
 //crear una nueva actividad
 router.get('/create', controller.create)
 router.post('/create', uploadFile.single('cargarImagen'),controller.store)
 
 //actualizar actividad
-router.get('/update', controller.update);
-//router.put("/:id/actualizar", controller.actualizar);
+router.get('/update/:nombre', controller.update);
+router.put("/update/:nombre", controller.actualizar);
 
 //eliminar actividad
 //router.delete("/:id/delete", controller.delete);

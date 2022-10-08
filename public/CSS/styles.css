@@ -45,7 +45,7 @@ body {
 }
 
 #seccion-superior{
-height: 90vh;
+height: 92vh;
 box-sizing: border-box;
 
 /* display: block; */
@@ -68,10 +68,12 @@ width: 80vw;
 height: 80vh;
 margin-left: 10vw;
 background-color: rgba(0,0,0,0.75);
+border-radius: 20px;
 }
 
 #primera-superior{
-height: 70vh;
+    height: 90%;
+    width: 97%;
 }
 
 #segunda-superior{
@@ -83,9 +85,10 @@ height: 70vh;
 /* SECCIÓN INFERIOR */
 
 #seccion-inferior{
-background-color: rgba(0, 0, 0, 0.75); 
+background-color: rgba(0, 0, 0, 0.4); 
 /* background-color: white; */
-height: 88.5vh;
+height: 88vh;
+margin-bottom: 3px;
 
 }
 
@@ -128,22 +131,28 @@ height: 88.5vh;
 
 /* Título */
 #titulo-seccion-inferior{
-/* background-color: blue; */
+
 height: 10vh;
-margin: 0px;
-font-size: 2.5vw;
+font-size: 3vw;
 text-transform: uppercase;
-font-weight: 100;
+font-weight: 600;
+padding-bottom: 40px;
+text-decoration: dashed;
+ background-color: rgba(0, 0, 0, 0.75)
 
 }
 
 /* Imagen */
-#imagen-seleccionada-inferior{
+#derecho-inferior{
 background-color: rgba(0,0,0,0.75);
 height: 70vh;
-margin: 0px;
+margin-top: 4vh;
 display: flex;
 align-items: center;
+border-radius: 20px;
+font-size: 40px;
+font-weight: 300;
+text-align: center;
 } 
 
 /* Barra de selección */
@@ -155,7 +164,7 @@ align-items: center;
     height: 70vh;
     text-align: center;
     font-size: 2.5vw;
-    margin: 0px;
+    margin-top: 4vh;
     /* background-color: blue; */
     display: flex;
     flex-direction: column;
@@ -175,14 +184,19 @@ align-items: center;
     text-align: center;
     vertical-align: middle;
     flex-grow: 1;
+    font-weight: 400;
+    background-color:rgba(0, 0, 0, 0.75);
+    border-radius: 20px;
+    margin: 5px;
 }
-.seleccionado-inferior{
+
+/* .seleccionado-inferior{
     display: flex;
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: rgba(0, 0, 90, 0.75);
     text-align: center;
     vertical-align: middle;
     flex-grow: 1;
-}
+}  */
 
 
 #imagen-inferior{
