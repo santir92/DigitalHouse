@@ -25,23 +25,15 @@
  },
  {
   "nombre": "asd",
-  "precio": "2999",
-  "participantes": "4",
+  "precio": 2999,
+  "participantes": 4,
   "categoria": "nuevo",
-  "descripcion": " sdakjsbd"
+  "descripcion": "           sdakjsbd          "
  },
  {
-  "nombre": "caminata",
-  "precio": "1090",
-  "participantes": "2º",
-  "categoria": "nuevo",
-  "descripcion": "caminata por el lago de la zona "
- },
- {
-  "nombre": "",
-  "precio": "",
-  "participantes": "",
-  "categoria": "",
-  "descripcion": " "
+  "nombre": "Prueba1",
+  "precio": 5050,
+  "participantes": 4,
+  "descripcion": "  peuebaprueba "
  }
 ]

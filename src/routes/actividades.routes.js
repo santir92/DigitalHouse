@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const controller = require('../controllers/actividadesController')
 const multer = require('multer')
+const path = require('path');
+const ejs = require('ejs');
 
 const multerDiskStorage = multer.diskStorage({
     destination: function(req, file, cb) { // request, archivo y callback que almacena archivo en destino
@@ -19,7 +21,7 @@ const uploadFile = multer ({storage: multerDiskStorage})
 router.get('/', controller.activities)
 
 // ver detalle actividad
-router.get('detalle/:nombre', controller.detalle)
+router.get('detalle/:nombre', controller.update)
 
 //crear una nueva actividad
 router.get('/create', controller.create)
@@ -30,7 +32,7 @@ router.get('/update/:nombre', controller.update);
 router.put("/update/:nombre", controller.actualizar);
 
 //eliminar actividad
-//router.delete("/:id/delete", controller.delete);
+router.delete("/actividades/update/:nombre", controller.delete);
 
 
 

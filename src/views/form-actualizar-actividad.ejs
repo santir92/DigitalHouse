@@ -58,6 +58,9 @@
             </section>
             
             <button type="submit" class="form-button">Actualizar actividad</button>
+            <form action="/actividades/update/<%=actividades.nombre%>?_method=DELETE" method="POST">
+                <button type="submit" class="action-button-delete">ELIMINAR</button>
+            </form>
             
         </form>
     </div>
