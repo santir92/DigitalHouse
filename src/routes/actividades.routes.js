@@ -32,7 +32,7 @@ router.get('/update/:nombre', controller.update);
 router.put("/update/:nombre", controller.actualizar);
 
 //eliminar actividad
-router.delete("/actividades/update/:nombre", controller.delete);
+router.delete("/update/:nombre", controller.delete);
 
 
 
