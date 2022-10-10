@@ -14,6 +14,25 @@ activities: (req, res) => {
     res.render('activities', {actividades})
 },
 
+detalle: (req, res) => {
+    //vista con detalle actividad
+    let nombreActividad = req.params.nombre;
+
+    let actividadParticular = null;
+
+    for (let o of actividades) {
+        if (o.nombre==nombreActividad){
+            actividadParticular=o;
+            break
+        }
+    }
+    if (actividadParticular != null){ 
+
+    res.render('detalle', {actividadParticular: actividadParticular})
+
+    res.send('Actividad no encontrada.');
+}},
+
 //crear actividad
 
 create: (req, res) => {

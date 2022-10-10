@@ -21,7 +21,7 @@ const uploadFile = multer ({storage: multerDiskStorage})
 router.get('/', controller.activities)
 
 // ver detalle actividad
-router.get('detalle/:nombre', controller.update)
+router.get('/detalle/:nombre', controller.detalle)
 
 //crear una nueva actividad
 router.get('/create', controller.create)
