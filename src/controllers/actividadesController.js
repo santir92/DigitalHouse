@@ -40,16 +40,16 @@ create: (req, res) => {
 },
 store: (req, res) => {
     let datos = req.body;
-    
-    /*let nuevaActividad = {
-        "nombre": datos.nombre,
-        "imgPrincipial": req.file.filename,
-        "precio": datos.precio,
-        "participantes": datos.participantes,
-        "categoria": datos.categoria,
-        "descripcion": datos.descripcion   
-    }*/
+    let imagen=req.file;
 
+    let nuevaActividad = {
+        "nombre": actividades.nombre,
+        "imgPrincipial": imagen.filename,
+        "precio": actividades.precio,
+        "participantes": actividades.participantes,
+        "categoria": actividades.categoria,
+        "descripcion": actividades.descripcion   
+    }
 
 
     //los valores que tomamos del formulario lo enviamos a actividades para guardarlo de manera logica
@@ -103,11 +103,16 @@ res.redirect('/')},
 delete: (req, res) =>{
     let actividadEliminada = req.params.nombre;
 
-    let nuevaListaActividades = actividades.filter (function(e){
-        return e.nombre!= actividadEliminada;
-    })
-    fs.writeFileSync(actividadesFilePath,JSON.stringify(nuevaListaActividades, null, " "),'utf-8');
-    res.redirect('/');
+    nuevaListaActividades = actividades.filter ((e) =>  e.nombre != actividadEliminada)
+    
+    fs.writeFileSync(
+        actividadesFilePath,
+        JSON.stringify(nuevaListaActividades , null, " "),
+        {
+            encoding: "utf-8",
+        }
+    );
+    res.redirect('/')
 }
 };
 

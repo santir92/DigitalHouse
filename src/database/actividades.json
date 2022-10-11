@@ -24,23 +24,28 @@
   "participantes": 2
  },
  {
-  "nombre": "asd",
-  "precio": 2999,
-  "participantes": 4,
-  "categoria": "nuevo",
-  "descripcion": "           sdakjsbd          "
- },
- {
-  "nombre": "Prueba1",
-  "precio": 5050,
-  "participantes": 4,
-  "descripcion": "  peuebaprueba "
- },
- {
   "nombre": "Actividad de prueba modif",
   "precio": 9900,
   "participantes": 12,
   "categoria": "nuevo",
+<<<<<<< HEAD
   "descripcion": "     es una prueba modificada sljandasjl ndlsa nsaljñnd sajnd jsah dkjansfkjdnsfkd  sajl    "
+=======
+  "descripcion": "   es una prueba modificada sljandasjl ndlsa nsaljñnd sajnd jsah dkjansfkjdnsfkd  sajl  "
+ },
+ {
+  "nombre": "PRUEBA FINAL",
+  "precio": "999",
+  "participantes": "3",
+  "categoria": "nuevo",
+  "descripcion": " kjabD"
+ },
+ {
+  "nombre": "",
+  "precio": "",
+  "participantes": "",
+  "categoria": "",
+  "descripcion": " "
+>>>>>>> f8e6a24dfd11c327e8c258c277770059eb156edb
  }
 ]
