@@ -28,5 +28,19 @@
   "participantes": "",
   "categoria": "",
   "descripcion": " "
+ },
+ {
+  "nombre": "erfrfregre",
+  "precio": "123213",
+  "participantes": "12",
+  "categoria": "nuevo",
+  "descripcion": " prueba prueba"
+ },
+ {
+  "nombre": "prueba",
+  "precio": "123",
+  "participantes": "12",
+  "categoria": "oferta",
+  "descripcion": " prueba prueba"
  }
 ]

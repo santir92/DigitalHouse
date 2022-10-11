@@ -44,7 +44,7 @@ store: (req, res) => {
 
     let nuevaActividad = {
         "nombre": actividades.nombre,
-        "imgPrincipial": imagen.filename,
+        //"imgPrincipial": imagen.filename,
         "precio": actividades.precio,
         "participantes": actividades.participantes,
         "categoria": actividades.categoria,
