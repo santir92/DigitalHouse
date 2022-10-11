@@ -8,14 +8,6 @@
   "participantes": 2
  },
  {
-  "nombre": "Caminata",
-  "imgPrincipal": "hiking.jpg",
-  "descripcion": "Unete a nuestro grupo de caminatas ecológicas, tenemos diferentes rutas donde conocerás paisajes naturales y también realizamos avistamiento de aves.",
-  "precio": 300,
-  "categoria": "oferta",
-  "participantes": 6
- },
- {
   "nombre": "Cabalgata",
   "imgPrincipal": "cabalgata.jpg",
   "descripcion": "Vive una experiencia donde podrás conocer pueblos cercanos y la biodiversidad de la naturaleza en todo esplendor",
@@ -28,17 +20,7 @@
   "precio": 9900,
   "participantes": 12,
   "categoria": "nuevo",
-<<<<<<< HEAD
-  "descripcion": "     es una prueba modificada sljandasjl ndlsa nsaljñnd sajnd jsah dkjansfkjdnsfkd  sajl    "
-=======
   "descripcion": "   es una prueba modificada sljandasjl ndlsa nsaljñnd sajnd jsah dkjansfkjdnsfkd  sajl  "
- },
- {
-  "nombre": "PRUEBA FINAL",
-  "precio": "999",
-  "participantes": "3",
-  "categoria": "nuevo",
-  "descripcion": " kjabD"
  },
  {
   "nombre": "",
@@ -46,6 +28,5 @@
   "participantes": "",
   "categoria": "",
   "descripcion": " "
->>>>>>> f8e6a24dfd11c327e8c258c277770059eb156edb
  }
 ]
