@@ -80,7 +80,13 @@ border-radius: 20px;
 height: 70vh;
 }
 
-
+.botonmodif {
+    padding: 15px ;
+    background-color: rgba(0, 0, 0, 0.65);
+    text-align: center;
+    border: solid 10px rgba(0, 0, 0, 0.90);
+    border-radius: 20px;
+}
 
 /* SECCIÓN INFERIOR */
 
