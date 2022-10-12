@@ -8,34 +8,19 @@
   "participantes": 2
  },
  {
-  "nombre": "Caminata",
-  "imgPrincipal": "hiking.jpg",
-  "descripcion": "Unete a nuestro grupo de caminatas ecológicas, tenemos diferentes rutas donde conocerás paisajes naturales y también realizamos avistamiento de aves.",
-  "precio": 300,
-  "categoria": "Actividad de temporada",
-  "participantes": 6
- },
- {
   "nombre": "Cabalgata",
   "imgPrincipal": "cabalgata.jpg",
   "descripcion": "Vive una experiencia donde podrás conocer pueblos cercanos y la biodiversidad de la naturaleza en todo esplendor",
   "precio": 500,
-  "categoria": "Actividad de temporada",
+  "categoria": "oferta",
   "participantes": 2
  },
  {
-  "nombre": "asd",
-  "precio": "2999",
-  "participantes": "4",
+  "nombre": "Actividad de prueba modif",
+  "precio": 9900,
+  "participantes": 12,
   "categoria": "nuevo",
-  "descripcion": " sdakjsbd"
- },
- {
-  "nombre": "caminata",
-  "precio": "1090",
-  "participantes": "2º",
-  "categoria": "nuevo",
-  "descripcion": "caminata por el lago de la zona "
+  "descripcion": "   es una prueba modificada sljandasjl ndlsa nsaljñnd sajnd jsah dkjansfkjdnsfkd  sajl  "
  },
  {
   "nombre": "",
@@ -43,5 +28,19 @@
   "participantes": "",
   "categoria": "",
   "descripcion": " "
+ },
+ {
+  "nombre": "erfrfregre",
+  "precio": "123213",
+  "participantes": "12",
+  "categoria": "nuevo",
+  "descripcion": " prueba prueba"
+ },
+ {
+  "nombre": "prueba",
+  "precio": "123",
+  "participantes": "12",
+  "categoria": "oferta",
+  "descripcion": " prueba prueba"
  }
 ]

@@ -40,7 +40,7 @@
                         <option value="nuevo" selected>Nuevo</option>
                         <option value="oferta">Actividad de temporada</option>
                         <% } %>
-                        <% if (actividades.categoria=="Actividad de temporada") {%>
+                        <% if (actividades.categoria=="oferta") {%>
                             <option value="">Escoge la categoria</option>
                             <option value="nuevo">Nuevo</option>
                             <option value="oferta" selected>Actividad de temporada</option>
@@ -60,6 +60,11 @@
             <button type="submit" class="form-button">Actualizar actividad</button>
             
         </form>
+       <br>
+        <form action="/actividades/update/<%=actividades.nombre%>?_method=DELETE" method="POST">
+            <button type="submit" class="action-button-delete">ELIMINAR</button>
+        </form>
+        
     </div>
 
     <%- include('./partials/footer.ejs') %>

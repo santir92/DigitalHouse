@@ -10,7 +10,7 @@
     <script src="https://cdn.lordicon.com/pzdvqjsp.js"></script>
     <!-- ESTILOS PROPIOS -->
     <link rel="stylesheet" href="/CSS/activities.css">
-    <title>Crear actividad</title>
+    <title>Actividades</title>
 </head>
 <body>
 
@@ -20,7 +20,7 @@
     <section class="card">
         <% for(let a of actividades) { %>
         <div class="card-activitie">
-            <a href="/detalle/<%= a.nombre %>" class="card-items"> <!--Ruta de donde esta el producto en detalle-->
+            <a href="/actividades/detalle/<%= a.nombre %>" class="card-items"> <!--Ruta de donde esta el producto en detalle-->
                 <img class="image-activitie" src="/images/actividades/<%= a.imgPrincipal  %>" alt="imagen de actividad">
                 <article >
                     <h2>Actividad: <%= a.nombre %></h2>

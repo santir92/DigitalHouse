@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const ejs = require('ejs');
 
 //esta variable nos muestra donde se encuntra la data de las actividades
 
@@ -13,6 +14,25 @@ activities: (req, res) => {
     res.render('activities', {actividades})
 },
 
+detalle: (req, res) => {
+    //vista con detalle actividad
+    let nombreActividad = req.params.nombre;
+
+    let actividadParticular = null;
+
+    for (let o of actividades) {
+        if (o.nombre==nombreActividad){
+            actividadParticular=o;
+            break
+        }
+    }
+    if (actividadParticular != null){ 
+
+    res.render('detalle', {actividadParticular: actividadParticular})
+
+    res.send('Actividad no encontrada.');
+}},
+
 //crear actividad
 
 create: (req, res) => {
@@ -20,7 +40,17 @@ create: (req, res) => {
 },
 store: (req, res) => {
     let datos = req.body;
-    
+    let imagen=req.file;
+
+    let nuevaActividad = {
+        "nombre": actividades.nombre,
+        //"imgPrincipial": imagen.filename,
+        "precio": actividades.precio,
+        "participantes": actividades.participantes,
+        "categoria": actividades.categoria,
+        "descripcion": actividades.descripcion   
+    }
+
 
     //los valores que tomamos del formulario lo enviamos a actividades para guardarlo de manera logica
     actividades.push(datos);
@@ -69,20 +99,26 @@ fs.writeFileSync((path.join(__dirname, '../database/actividades.json')),JSON.str
 
 res.redirect('/')},
 
+
+delete: (req, res) =>{
+    let actividadEliminada = req.params.nombre;
+
+    nuevaListaActividades = actividades.filter ((e) =>  e.nombre != actividadEliminada)
+    
+    fs.writeFileSync(
+        actividadesFilePath,
+        JSON.stringify(nuevaListaActividades , null, " "),
+        {
+            encoding: "utf-8",
+        }
+    );
+    res.redirect('/')
+}
 };
 
 
 
-/*delete: (req, res) =>{
-    let idActividad = req.params.id;
-    let nuevaLista = actividades.filter (function(e){
-        return e.id != idActividad;
-    })
-})
 
-fs.writeFileSync(productsFilePath,JSON.stringify(nuevaLista, null, " "),'utf-8');
-res.redirect('/');
-*/
 
 
 module.exports = controller;

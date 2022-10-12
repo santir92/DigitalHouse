@@ -5,6 +5,7 @@ const path = require('path')
 const router = require('./src/routes/index.routes')
 const actividadesRouter = require('./src/routes/actividades.routes')
 const reservasRouter = require('./src/routes/reservas.routes')
+const ejs = require('ejs');
 //
 const methodOverride = require('method-override')
 

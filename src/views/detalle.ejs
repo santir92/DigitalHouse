@@ -18,7 +18,7 @@
     <!-- Estilos propios -->
     <link rel = 'stylesheet' href = '/CSS/styles.css'>
 
-    <title>Document</title>
+    <title><%= actividadParticular.nombre%></title>
 </head>
 <body>
 
@@ -46,7 +46,7 @@
                 <!-- Imagen seleccionada -->
                 <div id = 'imagen-seleccionada-superior' class= 'row justify-content-evenly align-items-center'>  
 
-                    <img  src = '/images/<%=actividadParticular.imgPrincipal%>' alt = 'menu' id = 'primera-superior'  class = 'col-xl-11' >  
+                    <img  src = "/images/actividades/<%= actividadParticular.imgPrincipal  %>" alt = 'menu' id = 'primera-superior'  class = 'col-xl-11' >  
                     <!-- <img  src = '/images/menu2.png' alt = 'menu' id = 'segunda-superior' class = 'col-xl-5' > -->
 
                 </div>   
@@ -92,9 +92,13 @@
                 </div>      
 
             </section>  
+            
 
         </section> 
+        
+        <a type="submit" class = 'botonmodif' href="/actividades/update/<%= actividadParticular.nombre%>">MODIFICAR ACTIVIDAD</a>
 
+        
 
     </main>
 
