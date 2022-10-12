@@ -43,17 +43,17 @@ store: (req, res) => {
     let imagen=req.file;
 
     let nuevaActividad = {
-        "nombre": actividades.nombre,
-        //"imgPrincipial": imagen.filename,
-        "precio": actividades.precio,
-        "participantes": actividades.participantes,
-        "categoria": actividades.categoria,
-        "descripcion": actividades.descripcion   
+        "nombre": datos.nombre,
+        "imgPrincipal": imagen.filename,
+        "precio": datos.precio,
+        "participantes": datos.participantes,
+        "categoria": datos.categoria,
+        "descripcion": datos.descripcion   
     }
 
 
     //los valores que tomamos del formulario lo enviamos a actividades para guardarlo de manera logica
-    actividades.push(datos);
+    actividades.push(nuevaActividad);
     // y aca lo guardamos de manera fisica
 	fs.writeFileSync(actividadesFilePath,JSON.stringify(actividades, null, " "),'utf-8');
     // una vez agregado el producto volvemos a una vista en este caso el home
@@ -80,22 +80,28 @@ update: (req, res) => {
  actualizar: (req, res) =>{
 let nombreActividad = req.params.nombre;
 let datos = req.body;
+let nombreImagenAntigua="";
 
 for (let o of actividades){
     if (o.nombre== nombreActividad){
+
+        nombreImagenAntigua = o.imgPrincipal;
+
         o.nombre = datos.nombre;
         o.precio = parseInt(datos.precio);
         o.participantes = parseInt(datos.participantes);
 		o.categoria = datos.categoria;
 		o.descripcion = datos.descripcion;
-		o.image = datos.image;
+		o.imgPrincipal = req.file.filename;
         break;
         
     }
 }
 
 
-fs.writeFileSync((path.join(__dirname, '../database/actividades.json')),JSON.stringify(actividades, null, " "),'utf-8');
+fs.writeFileSync(actividadesFilePath,JSON.stringify(actividades, null, " "),'utf-8');
+
+fs.unlinkSync(__dirname+'/../../public/images/actividades/'+nombreImagenAntigua);
 
 res.redirect('/')},
 

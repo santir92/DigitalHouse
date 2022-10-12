@@ -16,31 +16,27 @@
   "participantes": 2
  },
  {
-  "nombre": "Actividad de prueba modif",
-  "precio": 9900,
-  "participantes": 12,
-  "categoria": "nuevo",
-  "descripcion": "   es una prueba modificada sljandasjl ndlsa nsaljñnd sajnd jsah dkjansfkjdnsfkd  sajl  "
- },
- {
-  "nombre": "",
-  "precio": "",
-  "participantes": "",
-  "categoria": "",
-  "descripcion": " "
- },
- {
-  "nombre": "erfrfregre",
-  "precio": "123213",
-  "participantes": "12",
-  "categoria": "nuevo",
-  "descripcion": " prueba prueba"
- },
- {
   "nombre": "prueba",
-  "precio": "123",
-  "participantes": "12",
+  "imgPrincipal": "1665375128379.jpg",
+  "precio": 123,
+  "participantes": 12,
   "categoria": "oferta",
   "descripcion": " prueba prueba"
+ },
+ {
+  "nombre": "Escalar",
+  "imgPrincipal": "1665538242209.jpg",
+  "precio": 800,
+  "participantes": 2,
+  "categoria": "nuevo",
+  "descripcion": "  Disfruta de una gran escalada "
+ },
+ {
+  "nombre": "Prueba",
+  "imgPrincipal": "1665538703163.jpeg",
+  "precio": 20000,
+  "participantes": 6,
+  "categoria": "oferta",
+  "descripcion": "   Probando multer al crear y actualizando"
  }
 ]
