@@ -28,10 +28,11 @@ detalle: (req, res) => {
     }
     if (actividadParticular != null){ 
 
-    res.render('detalle', {actividadParticular: actividadParticular})
-
-    res.send('Actividad no encontrada.');
-}},
+        res.render('detalle', {actividadParticular: actividadParticular})
+    }else{
+        res.send('Actividad no encontrada.');
+    }
+},
 
 //crear actividad
 
@@ -72,9 +73,10 @@ update: (req, res) => {
         }
     }
     if (actividadBuscada != null){
-        res.render ("form-actualizar-actividad.ejs", {actividades:actividadBuscada})
+       res.render ("form-actualizar-actividad.ejs", {actividades:actividadBuscada})
+    }else{
+        res.send('Actividad no encontrada.');
     }
-	res.send('Actividad no encontrada.');
 },
 
  actualizar: (req, res) =>{
@@ -100,7 +102,7 @@ for (let o of actividades){
 
 
 fs.writeFileSync(actividadesFilePath,JSON.stringify(actividades, null, " "),'utf-8');
-
+// el metodo unlinkSync elimina la imagen/archivo que le pasamos en la ruta en este caso la foto anterior que estaba cargada
 fs.unlinkSync(__dirname+'/../../public/images/actividades/'+nombreImagenAntigua);
 
 res.redirect('/')},
@@ -109,15 +111,21 @@ res.redirect('/')},
 delete: (req, res) =>{
     let actividadEliminada = req.params.nombre;
 
-    nuevaListaActividades = actividades.filter ((e) =>  e.nombre != actividadEliminada)
-    
-    fs.writeFileSync(
-        actividadesFilePath,
-        JSON.stringify(nuevaListaActividades , null, " "),
-        {
-            encoding: "utf-8",
+    let nombreImagenAntigua="";
+
+    for (let a of actividades){
+        if (a.nombre == actividadEliminada){
+            nombreImagenAntigua = a.imgPrincipal;
         }
-    );
+    }
+
+    let nuevaListaActividades = actividades.filter ((e) =>  e.nombre != actividadEliminada)
+    
+    //sobre escribir archivo de manera fisica
+    fs.writeFileSync(actividadesFilePath,JSON.stringify(nuevaListaActividades, null, " "),'utf-8');
+    // el metodo unlinkSync elimina la imagen/archivo que le pasamos en la ruta en este caso la foto anterior que estaba cargada
+    fs.unlinkSync(__dirname+'/../../public/images/actividades/'+nombreImagenAntigua);
+
     res.redirect('/')
 }
 };

@@ -150,6 +150,21 @@ INICIO ESTILOS DEL FORM
 	background-color:#5cbf2a;
 }
 
+.form-button-delete {
+	background-color:#DC0000;
+	border-radius:28px;
+	border:1px solid #C40E00;
+	display:inline-block;
+	cursor:pointer;
+	font-size:1.3vw;
+	padding:16px 31px;
+	text-decoration:none;
+}
+
+.form-button-delete:hover {
+	background-color:#FF0000;
+}
+
 
 /*
 FIN ESTILOS DEL FORM
@@ -158,7 +173,8 @@ FIN ESTILOS DEL FORM
 @media (max-width: 800px) {
 
     .items,
-    .form-button {
+    .form-button, 
+    .form-button-delete {
         font-size: 2.5vw;
     }
     

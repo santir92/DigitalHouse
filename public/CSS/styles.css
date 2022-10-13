@@ -88,6 +88,8 @@ height: 70vh;
     font-weight: bold;
     border: solid 10px rgba(0, 0, 0, 0.90);
     border-radius: 20px;
+    margin-left: 15px;
+    text-decoration: none;
 }
 
 /* SECCIÓN INFERIOR */
@@ -104,7 +106,7 @@ margin-bottom: 3px;
 .barra-superior {
 	box-sizing: border-box;
     background-color: rgba(0,0,0,0.75);
-    height: 8vh;
+    height: 14vh;
 	font-weight: bold;
 	margin-bottom: 0.5vh;
 	color:#FFF;

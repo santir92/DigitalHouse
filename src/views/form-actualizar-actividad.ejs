@@ -16,7 +16,7 @@
 
     <%- include ('./partials/header.ejs') %>
     <div class="div1">
-        <h1> Estas actualizando la actividad: <%= actividades.nombre %></h1>
+        <h1> Estas en la actividad: <%= actividades.nombre %></h1>
 
         <form action="/actividades/update/<%= actividades.nombre %>?_method=PUT" method="POST" enctype="multipart/form-data">
             <section class="form-section">
@@ -62,7 +62,7 @@
         </form>
        <br>
         <form action="/actividades/update/<%=actividades.nombre%>?_method=DELETE" method="POST">
-            <button type="submit" class="action-button-delete">ELIMINAR</button>
+            <button type="submit" class="form-button-delete">Eliminar</button>
         </form>
         
     </div>

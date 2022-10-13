@@ -30,13 +30,5 @@
   "participantes": 2,
   "categoria": "nuevo",
   "descripcion": "  Disfruta de una gran escalada "
- },
- {
-  "nombre": "Prueba",
-  "imgPrincipal": "1665538703163.jpeg",
-  "precio": 20000,
-  "participantes": 6,
-  "categoria": "oferta",
-  "descripcion": "   Probando multer al crear y actualizando"
  }
 ]
