@@ -10,6 +10,7 @@ const actividades = JSON.parse(fs.readFileSync(actividadesFilePath, 'utf-8'));
 const controller = {
 
 activities: (req, res) => {
+    const actividades = JSON.parse(fs.readFileSync(actividadesFilePath, 'utf-8'));
     //vista con todas las actividades
     res.render('activities', {actividades})
 },
