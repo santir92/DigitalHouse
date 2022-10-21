@@ -119,7 +119,9 @@ delete: (req, res) =>{
         }
     }
 
-    let nuevaListaActividades = actividades.filter ((e) =>  e.nombre != actividadEliminada)
+    let nuevaListaActividades = actividades.filter (function(e){
+        return e.nombre != actividadEliminada;
+    })
     
     //sobre escribir archivo de manera fisica
     fs.writeFileSync(actividadesFilePath,JSON.stringify(nuevaListaActividades, null, " "),'utf-8');
