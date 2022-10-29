@@ -1,21 +1,9 @@
 const express = require('express');
 const router = express.Router();
+//controlador
 const controller = require('../controllers/actividadesController')
-const multer = require('multer')
-const path = require('path');
-const ejs = require('ejs');
-
-const multerDiskStorage = multer.diskStorage({
-    destination: function(req, file, cb) { // request, archivo y callback que almacena archivo en destino
-     cb(null, path.join(__dirname,'../../public/images/actividades')); // Ruta donde almacenamos el archivo
-    },
-    filename: function(req, file, cb) { // request, archivo y callback que almacena archivo en destino
-     let imageName = Date.now() + path.extname(file.originalname);   // milisegundos y extensión de archivo original
-     cb(null, imageName);         
-    }
-});
-
-const uploadFile = multer ({storage: multerDiskStorage})
+//Middleware
+const uploadFile = require('../middlewares/multerActividadesMiddlewares');
 
 // ver todas las actividades
 router.get('/', controller.activities)

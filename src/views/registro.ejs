@@ -27,28 +27,44 @@
             <button class="btn-inicio"><a href="/login" class="a-css">Iniciar</a></button>
         </article>
 
-        <article class="container-css">
-            <h2 class="h2-css"><u>Crea tu cuenta</u></h2>
-            <div class="ingreso">
-                <h3 class="h3-css">Nombre</h3>
-                <input type="text" class="datos">
-                <hr class="hr-css">
-                <h3 class="h3-css">Email</h3>
-                <input type="email" class="datos">
-                <hr class="hr-css">
-                <h3 class="h3-css">Contraseña</h3>
-                <input type="password" class="datos">
-                <hr class="hr-css">
-                <h3 class="h3-css">Nombre de usuario</h3>
-                <input type="text" class="datos">
-                <hr class="hr-css">
-            </div>
-            <label>
-                <input type="checkbox" name="tyc">
-                Terminos y Condiciones
-            </label>
-            <button class="btn-registro"><a href="#" class="a-css">Registrarse</a></button>
-        </article>
+        <form action="register" method="POST" enctype="multipart/form-data">
+            <article class="container-css">
+                <h2 class="h2-css"><u>Crea tu cuenta</u></h2>
+                <div class="ingreso">
+                    <h3 class="h3-css">Nombre</h3>
+                    <input type="text" class="datos <%= locals.errors && errors.name ? 'warning' : null %>" name="name" value="<%= locals.old && old.name ? old.name : '' %>">
+                    <hr class="hr-css">
+                    <% if (locals.errors && errors.name) { %>
+                        <span class="errores"> <%= errors.name.msg %></span>
+                    <% } %>
+                    <h3 class="h3-css">Email</h3>
+                    <input type="email" class="datos <%= locals.errors && errors.email ? 'warning' : null %>" name="email" value="<%= locals.old && old.email ? old.email : '' %>">
+                    <hr class="hr-css">
+                    <% if (locals.errors && errors.email) { %>
+                        <span class="errores"> <%= errors.email.msg %></span>
+                    <% } %>
+                    <h3 class="h3-css">Contraseña</h3>
+                    <input type="password" class="datos <%= locals.errors && errors.password? 'warning' : null %>" name="password">
+                    <hr class="hr-css">
+                    <% if (locals.errors && errors.password) { %>
+                        <span class="errores"> <%= errors.password.msg %></span>
+                    <% } %>
+                    <h3 class="h3-css">Nombre de usuario</h3>
+                    <input type="text" class="datos <%= locals.errors && errors.username ? 'warning' : null %>" name="username" value="<%= locals.old && old.username ? old.username : '' %>">
+                    <hr class="hr-css">
+                    <% if (locals.errors && errors.username) { %>
+                        <span class="errores"> <%= errors.username.msg %></span>
+                    <% } %>
+                    <h3 class="h3-css">Agrega una foto</h3>
+                    <input type="file" class="datos" id="image" name="imgPrincipal">
+                    <br>
+                    <% if (locals.errors && errors.image) { %>
+                        <span class="errores"> <%= errors.image.msg %></span>
+                        <% } %>
+                </div>
+                <button type="submit" class="btn-registro a-css"> Registrarse </button>
+            </article>
+        </form>
     </section>
 
     <%- include('./partials/footer.ejs') %>

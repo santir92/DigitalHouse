@@ -20,36 +20,44 @@
     <%- include ('./partials/header.ejs') %>
 
 
+    
+    <form action="login" method="POST">
+        <section class="main-section">
 
-    <section class="main-section">
+            <article class="container-css">
+                <h2 class="h2-css"><u>Ingresa</u></h2>
+                <div class="marcas">
+                    <a href=""><i class="fa-brands fa-facebook a-css"></i></a>
+                    <a href=""><i class="fa-brands fa-google a-css"></i></a>
+                    <a href=""><i class="fa-brands fa-linkedin-in a-css"></i></a>
+                </div>
+                    <div class="ingreso">
+                        <h3 class="h3-css">Nombre de usuario</h3>
+                        <input type="text" class="datos" name="username">
+                        <hr class="hr-css">
+                        <% if (locals.errors && errors.username) { %>
+                            <span class="errores"> <%= errors.username.msg %></span>
+                        <% } %>
+                        
+                        <h3 class="h3-css">Contraseña</h3>
+                        <input type="password" class="datos" name="password">
+                        <hr class="hr-css">
 
-        <article class="container-css">
-            <h2 class="h2-css"><u>Ingresa</u></h2>
-            <div class="marcas">
-                <a href=""><i class="fa-brands fa-facebook a-css"></i></a>
-                <a href=""><i class="fa-brands fa-google a-css"></i></a>
-                <a href=""><i class="fa-brands fa-linkedin-in a-css"></i></a>
-            </div>
-            <div class="ingreso">
-                <h3 class="h3-css">Nombre de usuario</h3>
-                <input type="text" class="datos">
-                <hr class="hr-css">
+                        <label class="datos" for="remember">
+                        <input type="checkbox" id="remember"  name="remember"> Recordar usuario
+                        </label>                    
+                    </div>
+                    <button type="submit" class="btn-inicio a-css">Iniciar</button>
+                </article>
                 
-                <h3 class="h3-css">Contraseña</h3>
-                <input type="password" class="datos">
-                <hr class="hr-css">
-                
-            </div>
-            <h5 class="h5-css">¿Olvidaste la contraseña?</h5>
-            <button class="btn-inicio"><a href="#" class="a-css">Iniciar</a></button>
-        </article>
-
-        <article class="registro">
-            <h2 class="h2-css">¿Eres nuevo?</h2>
-            <p class="invitacion">Ingresa tus datos personales para abrir una cuenta con nosotros.</p>
-            <button class="btn-registro"><a href="register" class="a-css">Registrate</a></button>
-        </article>
-    </section>
+                <article class="registro">
+                    <h2 class="h2-css">¿Eres nuevo?</h2>
+                    <p class="invitacion">Ingresa tus datos personales para abrir una cuenta con nosotros.</p>
+                    <button class="btn-registro"><a href="register" class="a-css">Registrate</a></button>
+                </article>
+            </section>
+        </form>
+            
 
     <%- include('./partials/footer.ejs') %>
     
