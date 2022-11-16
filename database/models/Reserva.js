@@ -40,7 +40,7 @@ module.exports = function(sequelize, dataTypes){
         Reserva.belongsToMany(models.Actividad, {
             as: 'actividades',
             through: 'Detalle_actividad',
-            foreignKey: 'persona_id',
+            foreignKey: 'reserva_id',
             otherKey: 'actividad_id',
             timestamps: false
         })

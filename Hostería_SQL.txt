@@ -6,31 +6,31 @@
 -- SET FOREIGN_KEY_CHECKS=0;
 
 -- ---
--- Table 'Hostería'
+-- Table 'Hosteria'
 -- 
 -- ---
 
-DROP TABLE IF EXISTS `Hostería`;
+DROP TABLE IF EXISTS `Hosteria`;
 		
-CREATE TABLE `Hostería` (
+CREATE TABLE `Hosteria` (
   `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
   `Nombre` VARCHAR(20) NOT NULL DEFAULT 'NULL',
   `Dirección` VARCHAR(20) NOT NULL DEFAULT 'NULL',
-  `Email` INTEGER NOT NULL DEFAULT NULL,
-  `Teléfono` INTEGER(10) NOT NULL DEFAULT NULL,
+  `Email` VARCHAR(50) NOT NULL DEFAULT NULL,
+  `Teléfono` VARCHAR(10) NOT NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 );
 
 -- ---
--- Table 'Hostería/Actividad'
+-- Table 'Hosteria_actividad'
 -- 
 -- ---
 
-DROP TABLE IF EXISTS `Hostería/Actividad`;
+DROP TABLE IF EXISTS `Hosteria_actividad`;
 		
-CREATE TABLE `Hostería/Actividad` (
+CREATE TABLE `Hosteria_actividad` (
   `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
-  `Hostería_id` INTEGER NOT NULL DEFAULT NULL,
+  `Hosteria_id` INTEGER NOT NULL DEFAULT NULL,
   `Actividad_id` INTEGER NOT NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 );
@@ -115,8 +115,8 @@ CREATE TABLE `Persona` (
 -- Foreign Keys 
 -- ---
 
-ALTER TABLE `Hostería/Actividad` ADD FOREIGN KEY (Hostería_id) REFERENCES `Hostería` (`id`);
-ALTER TABLE `Hostería/Actividad` ADD FOREIGN KEY (Actividad_id) REFERENCES `Actividad` (`id`);
+ALTER TABLE `Hosteria_actividad` ADD FOREIGN KEY (Hosteria_id) REFERENCES `Hosteria` (`id`);
+ALTER TABLE `Hosteria_actividad` ADD FOREIGN KEY (Actividad_id) REFERENCES `Actividad` (`id`);
 ALTER TABLE `Detalle_actividad` ADD FOREIGN KEY (Reserva_id) REFERENCES `Reserva` (`id`);
 ALTER TABLE `Detalle_actividad` ADD FOREIGN KEY (Actividad_id) REFERENCES `Actividad` (`id`);
 ALTER TABLE `Actividad` ADD FOREIGN KEY (Tipo_actividad_id) REFERENCES `Tipo_actividad` (`id`);
@@ -126,8 +126,8 @@ ALTER TABLE `Reserva` ADD FOREIGN KEY (Persona_id) REFERENCES `Persona` (`id`);
 -- Table Properties
 -- ---
 
--- ALTER TABLE `Hostería` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
--- ALTER TABLE `Hostería/Actividad` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE `Hosteria` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE `Hosteria_actividad` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 -- ALTER TABLE `Detalle_actividad` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 -- ALTER TABLE `Actividad` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 -- ALTER TABLE `Tipo_actividad` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
@@ -138,9 +138,9 @@ ALTER TABLE `Reserva` ADD FOREIGN KEY (Persona_id) REFERENCES `Persona` (`id`);
 -- Test Data
 -- ---
 
--- INSERT INTO `Hostería` (`id`,`Nombre`,`Dirección`,`Email`,`Teléfono`) VALUES
+-- INSERT INTO `Hosteria` (`id`,`Nombre`,`Dirección`,`Email`,`Teléfono`) VALUES
 -- ('','','','','');
--- INSERT INTO `Hostería/Actividad` (`id`,`Hostería_id`,`Actividad_id`) VALUES
+-- INSERT INTO `Hosteria/Actividad` (`id`,`Hosteria_id`,`Actividad_id`) VALUES
 -- ('','','');
 -- INSERT INTO `Detalle_actividad` (`id`,`Reserva_id`,`Actividad_id`) VALUES
 -- ('','','');
