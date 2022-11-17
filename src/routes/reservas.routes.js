@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const controller = require('../controllers/reservasController')
 
-router.get('/', controller.carrito);
+router.get('/', controller.reserva);
 
 // actualizar una reserva
 router.get('/update', controller.update)
