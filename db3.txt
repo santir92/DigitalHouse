@@ -1,4 +1,5 @@
-use <Nombre de la bas de datos>;
+create database bdG5;
+use bdG5;
 DROP TABLE IF EXISTS `Hosteria`;
 		
 CREATE TABLE `Hosteria` (
