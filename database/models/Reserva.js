@@ -9,16 +9,13 @@ module.exports = function(sequelize, dataTypes){
             autoIncrement: true
         },
         fecha_reserva: {
-            type: dataTypes.STRING
+            type: dataTypes.DATE
         },
         cantidad_personas: {
-            type: dataTypes.STRING
+            type: dataTypes.INTEGER(2)
         },
-        fecha_check_in: {
-            type: dataTypes.STRING
-        },
-        fecha_check_out: {
-            type: dataTypes.STRING
+        horario: {
+            type: dataTypes.DATE
         },
         persona_id: {
             type: dataTypes.INTEGER

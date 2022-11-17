@@ -9,16 +9,16 @@ module.exports = function(sequelize, dataTypes){
             autoIncrement: true
         },
         nombre: {
-            type: dataTypes.STRING
+            type: dataTypes.STRING(50)
         },
-        apellido: {
-            type: dataTypes.STRING
+        email: {
+            type: dataTypes.STRING(50)
         },
-        dni: {
-            type: dataTypes.STRING
+        password: {
+            type: dataTypes.STRING(100)
         },
-        telefono: {
-            type: dataTypes.STRING
+        username: {
+            type: dataTypes.STRING(50)
         }
     }
 

@@ -11,10 +11,10 @@ module.exports = function (sequelize, Datatypes) {
             type: Datatypes.STRING(20)
         },
         valor: {
-            type: Datatypes.INTEGER
+            type: Datatypes.INTEGER(20)
         },
         cantidad_maxima: {
-            type: Datatypes.INTEGER
+            type: Datatypes.INTEGER(2)
         },
     };
 
