@@ -18,7 +18,8 @@
     <div class="div1">
         <h1> Estas en la actividad: <%= actividades.nombre %></h1>
 
-        <form action="/actividades/update/<%= actividades.nombre %>?_method=PUT" method="POST" enctype="multipart/form-data">
+        <!-- <form action="/actividades/update/<%= actividades.nombre %>?_method=PUT" method="POST" enctype="multipart/form-data"> -->
+        <form action="/actividades/update/<%= actividades.nombre %>?_method=PUT" method="POST"></form>
             <section class="form-section">
                 <article class="form-items">
                     <label for="nombre">Nombre de la actividad:</label>
@@ -51,10 +52,10 @@
                     <label for="descripcion">Descripcion:</label>
                     <textarea id="descripcion" name="descripcion"  class="text-area" > <%= actividades.descripcion %> </textarea>
                 </article>
-                <article class="form-items">
+                <!-- <article class="form-items">
                     <label for="imgPrincipal">Cargar imagen:</label>
                     <input type="file" id="imgPrincipal" name="imgPrincipal" multiple class="form-input">
-                </article>
+                </article> -->
             </section>
             
             <button type="submit" class="form-button">Actualizar actividad</button>

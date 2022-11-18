@@ -68,11 +68,7 @@ detalle: (req, res) => {
 
 create: (req, res) => {
     res.render('form-crear-actividad')
-    db.Actividad.create({
-        nombre: 'test',
-        tipo_actividad_id: 4
 
-    })
 },
 store: (req, res) => {
     // let datos = req.body;
@@ -95,54 +91,82 @@ store: (req, res) => {
     // // una vez agregado el producto volvemos a una vista en este caso el home
 	// res.redirect('/');
 
+    db.Actividad.create({
+        nombre: 'test',
+        tipo_actividad_id: 4
+
+    })
+    db.Tipo_actividad.create({
+        tipo: 'tipo',
+        valor: 'valor',
+        cantidad_maxima: 0,
+        imagen: 'imagen',
+        descripcion: 'descripcion'
+    })
 
 },
 
 update: (req, res) => {
-    let nombreActividad = req.params.nombre;
+    // let nombreActividad = req.params.nombre;
 
-    let actividadBuscada = null;
+    // let actividadBuscada = null;
 
-    for (let o of actividades) {
-        if (o.nombre==nombreActividad){
-            actividadBuscada=o;
-            break
-        }
-    }
-    if (actividadBuscada != null){
-       res.render ("form-actualizar-actividad.ejs", {actividades:actividadBuscada})
-    }else{
-        res.send('Actividad no encontrada.');
-    }
+    // for (let o of actividades) {
+    //     if (o.nombre==nombreActividad){
+    //         actividadBuscada=o;
+    //         break
+    //     }
+    // }
+    // if (actividadBuscada != null){
+    //    res.render ("form-actualizar-actividad.ejs", {actividades:actividadBuscada})
+    // }else{
+    //     res.send('Actividad no encontrada.');
+    // }
+
+
 },
 
  actualizar: (req, res) =>{
-let nombreActividad = req.params.nombre;
-let datos = req.body;
-let nombreImagenAntigua="";
+// let nombreActividad = req.params.nombre;
+// let datos = req.body;
+// let nombreImagenAntigua="";
 
-for (let o of actividades){
-    if (o.nombre== nombreActividad){
+// for (let o of actividades){
+//     if (o.nombre== nombreActividad){
 
-        nombreImagenAntigua = o.imgPrincipal;
+//         nombreImagenAntigua = o.imgPrincipal;
 
-        o.nombre = datos.nombre;
-        o.precio = parseInt(datos.precio);
-        o.participantes = parseInt(datos.participantes);
-		o.categoria = datos.categoria;
-		o.descripcion = datos.descripcion;
-		o.imgPrincipal = req.file.filename;
-        break;
+//         o.nombre = datos.nombre;
+//         o.precio = parseInt(datos.precio);
+//         o.participantes = parseInt(datos.participantes);
+// 		o.categoria = datos.categoria;
+// 		o.descripcion = datos.descripcion;
+// 		o.imgPrincipal = req.file.filename;
+//         break;
         
-    }
-}
+//     }
+// }
 
 
-fs.writeFileSync(actividadesFilePath,JSON.stringify(actividades, null, " "),'utf-8');
-// el metodo unlinkSync elimina la imagen/archivo que le pasamos en la ruta en este caso la foto anterior que estaba cargada
-fs.unlinkSync(__dirname+'/../../public/images/actividades/'+nombreImagenAntigua);
+// fs.writeFileSync(actividadesFilePath,JSON.stringify(actividades, null, " "),'utf-8');
+// // el metodo unlinkSync elimina la imagen/archivo que le pasamos en la ruta en este caso la foto anterior que estaba cargada
+// fs.unlinkSync(__dirname+'/../../public/images/actividades/'+nombreImagenAntigua);
 
-res.redirect('/')},
+// res.redirect('/')
+    db.Actividad.update({
+        nombre: 'test_update',
+        tipo_actividad_id: 8
+
+    })
+    db.Tipo_actividad.update({
+        tipo: 'tipo_update',
+        valor: 8,
+        cantidad_maxima: 8,
+        imagen: 'imagen',
+        descripcion: 'descripcion'
+    })
+
+},
 
 
 delete: (req, res) =>{
