@@ -20,7 +20,8 @@ activities: (req, res) => {
                 nombre: a.nombre,
                 participantes: a.tipo.cantidad_maxima,
                 valor: a.tipo.valor,
-                imagen:a.tipo.imagen
+                imagen:a.tipo.imagen,
+                descripcion: a.tipo.descripcion
             });
         }
         // const actividades = JSON.parse(fs.readFileSync(actividadesFilePath, 'utf-8'));

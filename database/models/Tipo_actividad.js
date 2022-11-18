@@ -19,6 +19,9 @@ module.exports = function (sequelize, Datatypes) {
         imagen: {
             type: Datatypes.STRING(50)
         },
+        descripcion: {
+            type: Datatypes.STRING(500)
+        }
     };
 
     let config = {freezeTableName: true, camelCase: false, timestamps: false};
