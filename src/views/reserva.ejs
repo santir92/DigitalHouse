@@ -18,20 +18,39 @@
 
     
     <div class="div1">
+
         <h1> Reservar Actividad</h1>
+
+        
 
         <form action="create" method="POST" enctype="multipart/form-data">
             <section class="form-section">
                 <article class="form-items">
+                    <label for="nombre">Nombre Completo:</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Nombre Completo" class="form-input">
+                    
+                        <div class="res">
+                                <article >
+                                    <h2>Actividad: </h2>
+                                   
+                                    <select name="actividades" placeholder="Elegí tu actividad" class="form-input">
+                                        <% for(let a of actividades) { %>
+                                            <option value="1">  <%= a.nombre %></option> 
+                                            <% } %>                                   
+                                    </select>
+                                    </p>
+                                    
+                                </article>
+                            </a>
+                        </div>
+                        
                     <label for="nombre">Actividad:</label>
-                    <select name="actividades" placeholder="Elegí tu actividad" class="form-input">
-                        <option value="1">Opción 1</option>
-                        <option value="2">Opción 1</option>
-                    </select>
+                    
                     
                 </article>
                 <article class="form-items">
                     <label for="precio">Precio:</label>
+                    <h3> <%= actividades.precio %></h3>                
                 </article>
                 <article class="form-items">
                     <label for="participantes">Cantidad de Participantes:</label>
