@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- FONT AWESOME -->
+    <script src="https://kit.fontawesome.com/43ee8fadd4.js" crossorigin="anonymous"></script>
+    <!-- LORDICON -->
+    <script src="https://cdn.lordicon.com/pzdvqjsp.js"></script>
+    <!-- ESTILOS PROPIOS -->
+    <link rel="stylesheet" href="/CSS/crear-actualizar-form.css">
+    <title>Crear actividad</title>
+</head>
+<body>
+
+    <%- include ('./partials/header.ejs') %>
+
+    
+    <div class="div1">
+        <h1> Reservar Actividad</h1>
+
+        <form action="create" method="POST" enctype="multipart/form-data">
+            <section class="form-section">
+                <article class="form-items">
+                    <label for="nombre">Actividad:</label>
+                    <select name="actividades" placeholder="Elegí tu actividad" class="form-input">
+                        <option value="1">Opción 1</option>
+                        <option value="2">Opción 1</option>
+                    </select>
+                    
+                </article>
+                <article class="form-items">
+                    <label for="precio">Precio:</label>
+                </article>
+                <article class="form-items">
+                    <label for="participantes">Cantidad de Participantes:</label>
+                    <input type="text" id="participantes" name="participantes" placeholder="Participantes de la actividad" class="form-input">
+                </article>
+                <article class="form-items">
+                    <label for="descripcion">Descripcion:</label>
+                    
+                </article>
+                <article class="form-items">
+                    <label for="fecha">Fecha:</label>
+                    <input type="date" id="start" name="fecha"
+                    
+                </article>
+                
+                <article class="form-items">
+                </article>
+            </section>
+            
+            <button type="submit" class="form-button">Reservar</button>
+            
+                
+                
+        <form >
+
+        </form>
+    </div>
+
+    <%- include('./partials/footer.ejs') %>
+    
+</body>
+</html>

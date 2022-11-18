@@ -5,8 +5,8 @@ const path = require('path');
 
 const controller = {
 
-carrito: (req, res) => {
-    res.render('carrito');
+reserva: (req, res) => {
+    res.render('reserva');
 },
     
 update: (req, res) => {
