@@ -23,19 +23,18 @@ module.exports = function(sequelize, dataTypes){
     }
 
     let config = {
-        tableName: 'Reserva',
-        timestamps: false
+        freezeTableName: true, camelCase: false, timestamps: false
     }
 
     let Reserva = sequelize.define(alias, cols, config)
 
     Reserva.associate = function(models){
         Reserva.belongsTo(models.Persona, {
-            as: 'reserva',
+            as: 'reservas',
             foreignKey: 'persona_id'
         })
         Reserva.belongsToMany(models.Actividad, {
-            as: 'actividades',
+            as: 'reservaciones',
             through: 'Detalle_actividad',
             foreignKey: 'reserva_id',
             otherKey: 'actividad_id',

@@ -17,8 +17,7 @@ module.exports = function(sequelize, dataTypes){
     }
 
     let config = {
-        tableName: 'Detalle_actividad',
-        timestamps: false
+        freezeTableName: true, camelCase: false, timestamps: false
     }
 
     let Detalle_actividad = sequelize.define(alias, cols, config)

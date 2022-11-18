@@ -15,17 +15,17 @@ module.exports = function (sequelize, Datatypes) {
         },
     };
 
-    let config = {camelCase: false, timestamps: false};
+    let config = {freezeTableName: true, camelCase: false, timestamps: false};
 
     const Actividad = sequelize.define(alias, cols, config);
 
     Actividad.associate = function(models){
         Actividad.belongsTo(models.Tipo_actividad, {
-            as: 'actividad',
+            as: 'tipo',
             foreignKey: 'tipo_actividad_id'
         });
         Actividad.belongsToMany(models.Reserva, {
-            as: 'actividades',
+            as: 'reserva',
             through: 'Detalle_actividad',
             foreignKey: 'actividad_id',
             otherKey: 'reserva_id',

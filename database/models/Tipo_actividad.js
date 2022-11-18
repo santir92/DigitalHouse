@@ -16,15 +16,18 @@ module.exports = function (sequelize, Datatypes) {
         cantidad_maxima: {
             type: Datatypes.INTEGER(2)
         },
+        imagen: {
+            type: Datatypes.STRING(50)
+        },
     };
 
-    let config = {camelCase: false, timestamps: false};
+    let config = {freezeTableName: true, camelCase: false, timestamps: false};
 
     const Tipo_actividad = sequelize.define(alias, cols, config);
 
     Tipo_actividad.associate = function(models){
         Tipo_actividad.hasMany(models.Actividad, {
-            as: 'tipoDeActividad',
+            as: 'actividad',
             foreignKey: 'tipo_actividad_id'
         })
         

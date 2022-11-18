@@ -21,7 +21,7 @@ module.exports = function (sequelize, Datatypes) {
         }
     };
 
-    let config = {camelCase: false, timestamps: false};
+    let config = {freezeTableName: true, camelCase: false, timestamps: false};
 
     const Hosteria = sequelize.define(alias, cols, config);
 

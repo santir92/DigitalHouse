@@ -23,8 +23,7 @@ module.exports = function(sequelize, dataTypes){
     }
 
     let config = {
-        tableName: 'Persona',
-        timestamps: false
+        freezeTableName: true, camelCase: false, timestamps: false
     }
 
     let Persona = sequelize.define(alias, cols, config)

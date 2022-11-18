@@ -1,18 +1,32 @@
 const fs = require('fs');
 const path = require('path');
 const ejs = require('ejs');
+const db = require('../../database/models');
 
 //esta variable nos muestra donde se encuntra la data de las actividades
 
-const actividadesFilePath = path.join(__dirname, '../database/actividades.json');
-const actividades = JSON.parse(fs.readFileSync(actividadesFilePath, 'utf-8'));
+// const actividadesFilePath = path.join(__dirname, '../database/actividades.json');
+// const actividades = JSON.parse(fs.readFileSync(actividadesFilePath, 'utf-8'));
 
 const controller = {
 
 activities: (req, res) => {
-    const actividades = JSON.parse(fs.readFileSync(actividadesFilePath, 'utf-8'));
-    //vista con todas las actividades
-    res.render('activities', {actividades})
+    db.Actividad.findAll({include:[{association:'tipo'}]})
+    .then((actividades)=>{
+        let listaActividades = [];
+
+        for(a of actividades){
+            listaActividades.push( {
+                nombre: a.nombre,
+                participantes: a.tipo.cantidad_maxima,
+                valor: a.tipo.valor,
+                imagen:a.tipo.imagen
+            });
+        }
+        // const actividades = JSON.parse(fs.readFileSync(actividadesFilePath, 'utf-8'));
+        //vista con todas las actividades
+        res.render('activities', {actividades: listaActividades})
+    })
 },
 
 detalle: (req, res) => {
