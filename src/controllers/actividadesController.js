@@ -34,20 +34,34 @@ detalle: (req, res) => {
     //vista con detalle actividad
     let nombreActividad = req.params.nombre;
 
-    let actividadParticular = null;
+    // let actividadParticular = null;
 
-    for (let o of actividades) {
-        if (o.nombre==nombreActividad){
-            actividadParticular=o;
-            break
+    // for (let o of actividades) {
+    //     if (o.nombre==nombreActividad){
+    //         actividadParticular=o;
+    //         break
+    //     }
+    // }
+    db.Actividad.findAll({include:[{association:'tipo'}]})
+    .then((actividades)=>{
+        
+        let detalleActividad = null;
+
+        for(a of actividades){
+            if (a.nombre==nombreActividad){
+                detalleActividad=a
+                break;
+            }
         }
-    }
-    if (actividadParticular != null){ 
+   
 
-        res.render('detalle', {actividadParticular: actividadParticular})
+    if (detalleActividad){ 
+
+        res.render('detalle', {actividad: detalleActividad})
     }else{
         res.send('Actividad no encontrada.');
     }
+})
 },
 
 //crear actividad

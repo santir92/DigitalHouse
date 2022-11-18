@@ -141,14 +141,22 @@ INSERT INTO `Hosteria` (`nombre`,`dirección`,`email`,`teléfono`) VALUES
 ('Hard Rock','Pedro veltre 2321','jajajsahkcb@gmail.com','3143528072');
 INSERT INTO `Hosteria` (`nombre`,`dirección`,`email`,`teléfono`) VALUES
 ('Hilton','Pedro veltre 21','jhasvdjvcb@gmail.com','3143528452');
-INSERT INTO `Tipo_actividad` (`tipo`,`valor`,`cantidad_maxima`) VALUES
-('Nueva','300','4');
-INSERT INTO `Tipo_actividad` (`tipo`,`valor`,`cantidad_maxima`) VALUES
-('Temporada','200','6');
+INSERT INTO `Tipo_actividad` (`tipo`,`valor`,`cantidad_maxima`,`imagen`,`descripcion`) VALUES
+('Nueva','300','4', 'cabalgata.jpg', 'Vive una experiencia donde podrás conocer pueblos cercanos y la biodiversidad de la naturaleza en todo esplendor');
+INSERT INTO `Tipo_actividad` (`tipo`,`valor`,`cantidad_maxima`, `imagen`,`descripcion`) VALUES
+('Temporada','200','6', '1665538242209.jpg', 'Disfruta de una gran escalada');
+INSERT INTO `Tipo_actividad` (`tipo`,`valor`,`cantidad_maxima`,`imagen`,`descripcion`) VALUES
+('Nueva','500','2','restaurante.jpg','Disfruta de nuestra opción de restaurante con una gran variedad de platos para que chicos y grandes puedan degustar');
+INSERT INTO `Tipo_actividad` (`tipo`,`valor`,`cantidad_maxima`,`imagen`,`descripcion`) VALUES
+('Nueva','800','5','hiking.jpg','Disfruta de una gran caminata');
 INSERT INTO `Actividad` (`nombre`,`tipo_actividad_id`) VALUES
-('Escalar','1');
+('Cabalgata','1');
 INSERT INTO `Actividad` (`nombre`,`tipo_actividad_id`) VALUES
-('Caminata','2');
+('Escalada','2');
+INSERT INTO `Actividad` (`nombre`,`tipo_actividad_id`) VALUES
+('Restaurante','3');
+INSERT INTO `Actividad` (`nombre`,`tipo_actividad_id`) VALUES
+('Caminata','4');
 INSERT INTO `Hosteria_actividad` (`hosteria_id`,`actividad_id`) VALUES
 ('2','1');
 INSERT INTO `Hosteria_actividad` (`hosteria_id`,`actividad_id`) VALUES
@@ -169,6 +177,4 @@ INSERT INTO `Detalle_actividad` (`reserva_id`,`actividad_id`) VALUES
 ('2','1');
 INSERT INTO `Detalle_actividad` (`reserva_id`,`actividad_id`) VALUES
 ('2','2');
-
-
 

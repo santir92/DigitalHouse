@@ -20,7 +20,7 @@
     <!-- Estilos propios -->
     <link rel = 'stylesheet' href = '/CSS/styles.css'>
 
-    <title><%= actividadParticular.nombre%></title>
+    <title><%= actividad.nombre%></title>
 </head>
 <body>
 
@@ -48,7 +48,7 @@
                 <!-- Imagen seleccionada -->
                 <div id = 'imagen-seleccionada-superior' class= 'row justify-content-evenly align-items-center'>  
 
-                    <img  src = "/images/actividades/<%= actividadParticular.imgPrincipal  %>" alt = 'menu' id = 'primera-superior'  class = 'col-xl-11' >  
+                    <img  src = "/images/actividades/<%= actividad.tipo.imagen %>" alt = 'menu' id = 'primera-superior'  class = 'col-xl-11' >  
                     <!-- <img  src = '/images/menu2.png' alt = 'menu' id = 'segunda-superior' class = 'col-xl-5' > -->
 
                 </div>   
@@ -80,17 +80,17 @@
                 
                 <!-- Barra de selección inferior -->
                 <span id = 'barra-de-seleccion-inferior' class = 'col-xl-5 col-xs-12'> 
-                    <p class = 'seleccion-inferior align-items-center justify-content-center'> ¡Actividad <%= actividadParticular.categoria%>! </p>
-                    <p class = 'seleccion-inferior align-items-center justify-content-center'> Desde $<%= actividadParticular.precio%> </p>
-                    <p class = 'seleccion-inferior align-items-center justify-content-center'>Para <%= actividadParticular.participantes%> personas</p>
-                    <!-- <p class = 'seleccion-inferior align-items-center justify-content-center' style="background-color: blue">Para <%= actividadParticular.participantes%> personas</p> -->
+                    <p class = 'seleccion-inferior align-items-center justify-content-center'> ¡Actividad <%= actividad.nombre%>! </p>
+                    <p class = 'seleccion-inferior align-items-center justify-content-center'> Desde $<%= actividad.tipo.valor%> </p>
+                    <p class = 'seleccion-inferior align-items-center justify-content-center'>Para <%= actividad.tipo.cantidad_maxima%> personas</p>
+                    <!-- <p class = 'seleccion-inferior align-items-center justify-content-center' style="background-color: blue">Para <%= actividad.tipo.cantidad_maxima%> personas</p> -->
                     <!-- <p class = 'seleccion-inferior align-items-center justify-content-center'> ¿Alergias? </p> -->
                 </span>
 
                 <!-- Imagen seleccionada inferior -->
                 <div id = 'derecho-inferior' class = 'col-xl-7 col-xs-12 align-items-center justify-content-center'> 
                     <!-- <img src = '/images/vegetariano.png' id = 'imagen-inferior'>  -->
-                    <%= actividadParticular.descripcion%>
+                    <%= actividad.tipo.descripcion%>
                 </div>      
 
             </section>  
@@ -98,7 +98,7 @@
 
         </section> 
         
-        <a type="submit" class = 'botonmodif' href="/actividades/update/<%= actividadParticular.nombre%>">MODIFICAR ACTIVIDAD</a>
+        <a type="submit" class = 'botonmodif' href="/actividades/update/<%= actividad.nombre%>">MODIFICAR ACTIVIDAD</a>
         <a type="submit" class = 'botonmodif' href="/carrito">RESERVAR ACTIVIDAD</a>
         
 
