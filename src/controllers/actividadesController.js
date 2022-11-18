@@ -68,27 +68,34 @@ detalle: (req, res) => {
 
 create: (req, res) => {
     res.render('form-crear-actividad')
+    db.Actividad.create({
+        nombre: 'test',
+        tipo_actividad_id: 4
+
+    })
 },
 store: (req, res) => {
-    let datos = req.body;
-    let imagen=req.file;
+    // let datos = req.body;
+    // let imagen=req.file;
 
-    let nuevaActividad = {
-        "nombre": datos.nombre,
-        "imgPrincipal": imagen.filename,
-        "precio": datos.precio,
-        "participantes": datos.participantes,
-        "categoria": datos.categoria,
-        "descripcion": datos.descripcion   
-    }
+    // let nuevaActividad = {
+    //     "nombre": datos.nombre,
+    //     "imgPrincipal": imagen.filename,
+    //     "precio": datos.precio,
+    //     "participantes": datos.participantes,
+    //     "categoria": datos.categoria,
+    //     "descripcion": datos.descripcion   
+    // }
 
 
-    //los valores que tomamos del formulario lo enviamos a actividades para guardarlo de manera logica
-    actividades.push(nuevaActividad);
-    // y aca lo guardamos de manera fisica
-	fs.writeFileSync(actividadesFilePath,JSON.stringify(actividades, null, " "),'utf-8');
-    // una vez agregado el producto volvemos a una vista en este caso el home
-	res.redirect('/');
+    // //los valores que tomamos del formulario lo enviamos a actividades para guardarlo de manera logica
+    // actividades.push(nuevaActividad);
+    // // y aca lo guardamos de manera fisica
+	// fs.writeFileSync(actividadesFilePath,JSON.stringify(actividades, null, " "),'utf-8');
+    // // una vez agregado el producto volvemos a una vista en este caso el home
+	// res.redirect('/');
+
+
 },
 
 update: (req, res) => {
