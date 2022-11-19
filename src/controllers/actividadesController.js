@@ -172,7 +172,7 @@ store: (req, res) => {
 })},
 
 update: (req, res) => {
-    // let nombreActividad = req.params.nombre;
+    let nombreActividad = req.params.nombre;
 
     // let actividadBuscada = null;
 
@@ -187,74 +187,113 @@ update: (req, res) => {
     // }else{
     //     res.send('Actividad no encontrada.');
     // }
+    db.Actividad.findAll({include:[{association:'tipo'}]})
+    .then((actividades)=>{
+        
+        let detalleActividad = null;
 
+        for(a of actividades){
+            if (a.nombre==nombreActividad){
+                detalleActividad=a
+                break;
+            }
+        }
+   
+
+    if (detalleActividad){ 
+
+        res.render('form-actualizar-actividad', {actividades: detalleActividad})
+    }else{
+        res.send('Actividad no encontrada.');
+    }
+}
+
+)
 
 },
 
  actualizar: (req, res) =>{
-// let nombreActividad = req.params.nombre;
-// let datos = req.body;
-// let nombreImagenAntigua="";
+    // Saber cuál es el tipo_actividad_id de la actividad que se quiere editar
+    var idUpdate = req.params.id
+    var idTipoActividad
+    db.Actividad.findByPk(idUpdate)
+        .then(function(respuesta){
+            console.log('El tipo_actividad_id es --------' + respuesta.tipo_actividad_id)
+            idTipoActividad = respuesta.tipo_actividad_id
+            return idTipoActividad
+        })
 
-// for (let o of actividades){
-//     if (o.nombre== nombreActividad){
-
-//         nombreImagenAntigua = o.imgPrincipal;
-
-//         o.nombre = datos.nombre;
-//         o.precio = parseInt(datos.precio);
-//         o.participantes = parseInt(datos.participantes);
-// 		o.categoria = datos.categoria;
-// 		o.descripcion = datos.descripcion;
-// 		o.imgPrincipal = req.file.filename;
-//         break;
-        
-//     }
-// }
-
-
-// fs.writeFileSync(actividadesFilePath,JSON.stringify(actividades, null, " "),'utf-8');
-// // el metodo unlinkSync elimina la imagen/archivo que le pasamos en la ruta en este caso la foto anterior que estaba cargada
-// fs.unlinkSync(__dirname+'/../../public/images/actividades/'+nombreImagenAntigua);
-
-// res.redirect('/')
+    //    
+    .then(function(idTipoActividad){
+    console.log('El id de activiad es-------------' + idUpdate)
     db.Actividad.update({
-        nombre: 'test_update',
-        tipo_actividad_id: 8
+        
+        nombre: req.body.nombre,
+        // tipo_actividad_id: 2
 
+    },
+    {
+        where:{
+            id: req.params.id
+        }
     })
     db.Tipo_actividad.update({
-        tipo: 'tipo_update',
-        valor: 8,
-        cantidad_maxima: 8,
+        // tipo: 'tipo_update',
+        valor: req.body.precio,
+        cantidad_maxima: req.body.participantes,
         imagen: 'imagen',
-        descripcion: 'descripcion'
+        descripcion: req.body.descripcion
+    },
+    {
+        where:{
+           
+            id: idTipoActividad
+
+        }
     })
+    .then(function(){
+    res.redirect('/actividades')
+    })
+})
+
+    // .then(function(){
+
+    //     res.redirect('/actividades')
+    // })
 
 },
 
 
 delete: (req, res) =>{
-    let actividadEliminada = req.params.nombre;
+    // let actividadEliminada = req.params.nombre;
 
-    let nombreImagenAntigua="";
+    // let nombreImagenAntigua="";
 
-    for (let a of actividades){
-        if (a.nombre == actividadEliminada){
-            nombreImagenAntigua = a.imgPrincipal;
-        }
-    }
+    // for (let a of actividades){
+    //     if (a.nombre == actividadEliminada){
+    //         nombreImagenAntigua = a.imgPrincipal;
+    //     }
+    // }
 
-    let nuevaListaActividades = actividades.filter (function(e){
-        return e.nombre != actividadEliminada;
-    })
+    // let nuevaListaActividades = actividades.filter (function(e){
+    //     return e.nombre != actividadEliminada;
+    // })
     
-    //sobre escribir archivo de manera fisica
-    fs.writeFileSync(actividadesFilePath,JSON.stringify(nuevaListaActividades, null, " "),'utf-8');
-    // el metodo unlinkSync elimina la imagen/archivo que le pasamos en la ruta en este caso la foto anterior que estaba cargada
-    fs.unlinkSync(__dirname+'/../../public/images/actividades/'+nombreImagenAntigua);
+    // //sobre escribir archivo de manera fisica
+    // fs.writeFileSync(actividadesFilePath,JSON.stringify(nuevaListaActividades, null, " "),'utf-8');
+    // // el metodo unlinkSync elimina la imagen/archivo que le pasamos en la ruta en este caso la foto anterior que estaba cargada
+    // fs.unlinkSync(__dirname+'/../../public/images/actividades/'+nombreImagenAntigua);
 
-    res.redirect('/')
+    // res.redirect('/')
+    db.Actividad.destroy({
+        where: {
+            nombre: req.params.nombre
+        }
+    })
+    .then(function(){
+
+        res.redirect('/actividades')
+    })
 }
 };
 

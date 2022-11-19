@@ -19,7 +19,7 @@ router.post('/create', controller.store)
 //actualizar actividad
 router.get('/update/:nombre', controller.update);
 // router.put("/update/:nombre", uploadFile.single('imgPrincipal'), controller.actualizar);
-router.put("/update/:nombre", controller.actualizar);
+router.put("/update/:id", controller.actualizar);
 
 //eliminar actividad
 router.delete("/update/:nombre", controller.delete);
