@@ -160,10 +160,11 @@ store: (req, res) => {
         //     console.log(respuesta)
         // })
 
+        
 
     })
     .then(function(){
-        res.redirect('/actividades') //
+        res.redirect('/actividades') //////
     })
     
     
