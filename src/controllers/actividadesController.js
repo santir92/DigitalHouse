@@ -163,7 +163,7 @@ store: (req, res) => {
 
     })
     .then(function(){
-        res.redirect('/actividades')
+        res.redirect('/actividades') //
     })
     
     
