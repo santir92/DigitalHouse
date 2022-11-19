@@ -19,7 +19,7 @@ module.exports = function (sequelize, Datatypes) {
         imagen: {
             type: Datatypes.STRING(50)
         },
-        imagen: {
+        descripcion: {
             type: Datatypes.STRING(500)
         }
     };

@@ -22,6 +22,10 @@ activities: (req, res) => {
                 valor: a.tipo.valor,
                 imagen:a.tipo.imagen,
                 descripcion: a.tipo.descripcion
+                // participantes: a.cantidad_maxima,
+                // valor: a.valor,
+                // imagen:a.imagen,
+                // descripcion: a.descripcion
             });
         }
         // const actividades = JSON.parse(fs.readFileSync(actividadesFilePath, 'utf-8'));
@@ -67,10 +71,19 @@ detalle: (req, res) => {
 //crear actividad
 
 create: (req, res) => {
+    console.log('crear')
     res.render('form-crear-actividad')
+    // db.Tipo_actividad.findAll({raw: true}).then( function (respuesta){
+    //     for (r of respuesta){
+    //         console.log(r.tipo)
+    //     }
+    // })
+    
+ 
 
 },
 store: (req, res) => {
+    // console.log('enviar')
     // let datos = req.body;
     // let imagen=req.file;
 
@@ -90,21 +103,72 @@ store: (req, res) => {
 	// fs.writeFileSync(actividadesFilePath,JSON.stringify(actividades, null, " "),'utf-8');
     // // una vez agregado el producto volvemos a una vista en este caso el home
 	// res.redirect('/');
-
-    db.Actividad.create({
-        nombre: 'test',
-        tipo_actividad_id: 4
-
-    })
+ 
     db.Tipo_actividad.create({
-        tipo: 'tipo',
-        valor: 'valor',
-        cantidad_maxima: 0,
+        // tipo: 'tipo',
+        // valor: 'valor',
+        // cantidad_maxima: 0,
+        // imagen: 'imagen',
+        // descripcion: 'descripcion',
+        tipo: req.body.tipo,
+        valor: req.body.valor,
+        cantidad_maxima: req.body.participantes,
         imagen: 'imagen',
-        descripcion: 'descripcion'
+        descripcion: req.body.descripcion
+        
     })
 
-},
+    .then(function(){
+    var idBuscado 
+  
+    db.Tipo_actividad.findAll({raw: true}).then( function (respuesta){
+        for (r of respuesta){
+            console.log('r.tipo' + r.tipo)
+            console.log('req, body,tipo' + req.body.tipo)
+            if (r.tipo == req.body.tipo){
+                idBuscado = r.id
+                console.log('IF--------' + idBuscado)
+                break
+            }
+            // else{
+            //     idBuscado = req.body
+            // }
+            console.log('FUERA DEL IF' + idBuscado)
+        }
+        return idBuscado
+    }
+    )
+    // console.log('ANTES' + idBuscado)
+    // return idBuscado
+// }
+// )
+
+    .then( function (idBuscado){
+    console.log('id buscado----------------------' + idBuscado)
+    db.Actividad.create({
+
+        // nombre: 'test2',
+        // tipo_actividad_id: 4
+        nombre: req.body.nombre,
+        
+        tipo_actividad_id: idBuscado
+        // db.Tipo_actividad.findAll({
+        //     where: {
+        //         tipo: 'Temporada'
+        //     }
+        // }).then( function (respuesta){
+        //     console.log(respuesta)
+        // })
+
+
+    })
+    .then(function(){
+        res.redirect('/actividades')
+    })
+    
+    
+})
+})},
 
 update: (req, res) => {
     // let nombreActividad = req.params.nombre;

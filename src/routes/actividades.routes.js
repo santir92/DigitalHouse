@@ -13,7 +13,8 @@ router.get('/detalle/:nombre', controller.detalle)
 
 //crear una nueva actividad
 router.get('/create', controller.create)
-router.post('/create', uploadFile.single('imgPrincipal'),controller.store)
+// router.post('/create', uploadFile.single('imgPrincipal'),controller.store)
+router.post('/create', controller.store)
 
 //actualizar actividad
 router.get('/update/:nombre', controller.update);
