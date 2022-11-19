@@ -123,17 +123,17 @@ store: (req, res) => {
   
     db.Tipo_actividad.findAll({raw: true}).then( function (respuesta){
         for (r of respuesta){
-            console.log('r.tipo' + r.tipo)
-            console.log('req, body,tipo' + req.body.tipo)
+            // console.log('r.tipo' + r.tipo)
+            // console.log('req, body,tipo' + req.body.tipo)
             if (r.tipo == req.body.tipo){
                 idBuscado = r.id
-                console.log('IF--------' + idBuscado)
-                break
+                // console.log('IF--------' + idBuscado)
+                // break
             }
             // else{
             //     idBuscado = req.body
             // }
-            console.log('FUERA DEL IF' + idBuscado)
+            // console.log('FUERA DEL IF' + idBuscado)
         }
         return idBuscado
     }
@@ -160,7 +160,7 @@ store: (req, res) => {
         //     console.log(respuesta)
         // })
 
-        
+
 
     })
     .then(function(){
