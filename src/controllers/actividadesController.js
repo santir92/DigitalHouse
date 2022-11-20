@@ -11,17 +11,17 @@ const db = require('../../database/models');
 const controller = {
 
 activities: (req, res) => {
-    db.Actividad.findAll({include:[{association:'tipo'}]})
+    db.Actividad.findAll()
     .then((actividades)=>{
         let listaActividades = [];
 
         for(a of actividades){
             listaActividades.push( {
                 nombre: a.nombre,
-                participantes: a.tipo.cantidad_maxima,
-                valor: a.tipo.valor,
-                imagen:a.tipo.imagen,
-                descripcion: a.tipo.descripcion
+                participantes: a.cantidad_maxima,
+                valor: a.valor,
+                imagen:a.imagen,
+                descripcion: a.descripcion
             });
         }
         // const actividades = JSON.parse(fs.readFileSync(actividadesFilePath, 'utf-8'));
@@ -42,7 +42,7 @@ detalle: (req, res) => {
     //         break
     //     }
     // }
-    db.Actividad.findAll({include:[{association:'tipo'}]})
+    db.Actividad.findAll()
     .then((actividades)=>{
         
         let detalleActividad = null;
@@ -70,43 +70,75 @@ create: (req, res) => {
     res.render('form-crear-actividad')
 },
 store: (req, res) => {
-    let datos = req.body;
-    let imagen=req.file;
+    // let datos = req.body;
+    // let imagen=req.file;
+    // let nuevaActividad = {
+    //     "nombre": datos.nombre,
+    //     "imgPrincipal": imagen.filename,
+    //     "precio": datos.precio,
+    //     "participantes": datos.participantes,
+    //     "categoria": datos.categoria,
+    //     "descripcion": datos.descripcion   
+    // }
+    // //los valores que tomamos del formulario lo enviamos a actividades para guardarlo de manera logica
+    // actividades.push(nuevaActividad);
+    // // y aca lo guardamos de manera fisica
+	// fs.writeFileSync(actividadesFilePath,JSON.stringify(actividades, null, " "),'utf-8');
+    // // una vez agregado el producto volvemos a una vista en este caso el home
+    
 
-    let nuevaActividad = {
-        "nombre": datos.nombre,
-        "imgPrincipal": imagen.filename,
-        "precio": datos.precio,
-        "participantes": datos.participantes,
-        "categoria": datos.categoria,
-        "descripcion": datos.descripcion   
-    }
+    db.Actividad.create({
+        nombre: req.body.nombre,
+        tipo: req.body.categoria,
+        valor: req.body.precio,
+        cantidad_maxima: req.body.participantes,
+        imagen:req.file.filename,
+        descripcion:req.body.descripcion
+    })
 
+    res.redirect('/');
+    
 
-    //los valores que tomamos del formulario lo enviamos a actividades para guardarlo de manera logica
-    actividades.push(nuevaActividad);
-    // y aca lo guardamos de manera fisica
-	fs.writeFileSync(actividadesFilePath,JSON.stringify(actividades, null, " "),'utf-8');
-    // una vez agregado el producto volvemos a una vista en este caso el home
-	res.redirect('/');
 },
 
 update: (req, res) => {
+    // let nombreActividad = req.params.nombre;
+
+    // let actividadBuscada = null;
+
+    // for (let o of actividades) {
+    //     if (o.nombre==nombreActividad){
+    //         actividadBuscada=o;
+    //         break
+    //     }
+    // }
+    // if (actividadBuscada != null){
+    //    res.render ("form-actualizar-actividad.ejs", {actividades:actividadBuscada})
+    // }else{
+    //     res.send('Actividad no encontrada.');
+    // }
+
     let nombreActividad = req.params.nombre;
+    db.Actividad.findAll()
+    .then((actividades)=>{
+        
+        let detalleActividad = null;
 
-    let actividadBuscada = null;
-
-    for (let o of actividades) {
-        if (o.nombre==nombreActividad){
-            actividadBuscada=o;
-            break
+        for(a of actividades){
+            if (a.nombre==nombreActividad){
+                detalleActividad=a
+                break;
+            }
         }
-    }
-    if (actividadBuscada != null){
-       res.render ("form-actualizar-actividad.ejs", {actividades:actividadBuscada})
+   
+
+    if (detalleActividad){ 
+
+        res.render('form-actualizar-actividad.ejs', {actividad: detalleActividad})
     }else{
         res.send('Actividad no encontrada.');
     }
+})
 },
 
  actualizar: (req, res) =>{

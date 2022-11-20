@@ -16,31 +16,31 @@
 
     <%- include ('./partials/header.ejs') %>
     <div class="div1">
-        <h1> Estas en la actividad: <%= actividades.nombre %></h1>
+        <h1> Estas en la actividad: <%= actividad.nombre %></h1>
 
-        <form action="/actividades/update/<%= actividades.nombre %>?_method=PUT" method="POST" enctype="multipart/form-data">
+        <form action="/actividades/update/<%= actividad.nombre %>?_method=PUT" method="POST" enctype="multipart/form-data">
             <section class="form-section">
                 <article class="form-items">
                     <label for="nombre">Nombre de la actividad:</label>
-                    <input type="text" id="nombre" name="nombre" value="<%= actividades.nombre %>" placeholder="Nombre de la actividad" class="form-input">
+                    <input type="text" id="nombre" name="nombre" value="<%= actividad.nombre %>" placeholder="Nombre de la actividad" class="form-input">
                 </article>
                 <article class="form-items">
                     <label for="precio">Precio:</label>
-                    <input type="text" id="precio" name="precio" value="<%= actividades.precio %>" placeholder="Precio de la actividad" class="form-input">
+                    <input type="text" id="precio" name="precio" value="<%= actividad.valor %>" placeholder="Precio de la actividad" class="form-input">
                 </article>
                 <article class="form-items">
                     <label for="participantes">Minimo de participantes:</label>
-                    <input type="text" id="participantes" name="participantes" value="<%= actividades.participantes %>" placeholder="Cantidad de participantes" class="form-input">
+                    <input type="text" id="participantes" name="participantes" value="<%= actividad.cantidad_maxima %>" placeholder="Cantidad de participantes" class="form-input">
                 </article>
                 <article class="form-items">
                     <label for="categoria" >Categoria:</label>
                     <select name="categoria"  id="categoria" class="form-input">
-                        <% if (actividades.categoria=="nuevo") {%>
+                        <% if (actividad.tipo=="nuevo") {%>
                         <option value="">Escoge la categoria</option>
                         <option value="nuevo" selected>Nuevo</option>
                         <option value="oferta">Actividad de temporada</option>
                         <% } %>
-                        <% if (actividades.categoria=="oferta") {%>
+                        <% if (actividad.tipo=="oferta") {%>
                             <option value="">Escoge la categoria</option>
                             <option value="nuevo">Nuevo</option>
                             <option value="oferta" selected>Actividad de temporada</option>
@@ -49,7 +49,7 @@
                 </article>
                 <article class="form-items">
                     <label for="descripcion">Descripcion:</label>
-                    <textarea id="descripcion" name="descripcion"  class="text-area" > <%= actividades.descripcion %> </textarea>
+                    <textarea id="descripcion" name="descripcion"  class="text-area" > <%= actividad.descripcion %> </textarea>
                 </article>
                 <article class="form-items">
                     <label for="imgPrincipal">Cargar imagen:</label>
@@ -61,7 +61,7 @@
             
         </form>
        <br>
-        <form action="/actividades/update/<%=actividades.nombre%>?_method=DELETE" method="POST">
+        <form action="/actividades/update/<%=actividad.nombre%>?_method=DELETE" method="POST">
             <button type="submit" class="form-button-delete">Eliminar</button>
         </form>
         
