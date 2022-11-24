@@ -114,19 +114,20 @@ store: (req, res) => {
 update: (req, res) => {
     let nombreActividad = req.params.nombre;
 
-    db.Actividad.findAll({raw: true}, {include:[{association: 'tipo'}]})
+    db.Actividad.findAll({include:[{association: 'tipo'}]})
     .then((respuesta)=>{
         let todasLasActividades = respuesta
 
         let actividadParticular = {}
 
         for (h of todasLasActividades){
-            console.log(h)
+            console.log(respuesta)
             if (nombreActividad == h.nombre){
   
                 actividadParticular.nombre = h.nombre
                 actividadParticular.id = h.id
                 actividadParticular.tipo_actividad_id = h.tipo_actividad_id
+                actividadParticular.tipo = h.tipo.tipo
             }
         }
 
