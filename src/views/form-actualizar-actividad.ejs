@@ -16,10 +16,10 @@
 
     <%- include ('./partials/header.ejs') %>
     <div class="div1">
-        <h1> Estas en la actividad: <%= actividades.nombre %></h1>
+        
+        <h1> Estás en la actividad: <%= actividades.nombre %></h1>
 
-        <!-- <form action="/actividades/update/<%= actividades.nombre %>?_method=PUT" method="POST" enctype="multipart/form-data"> -->
-        <form action="/actividades/update/<%= actividades.id %>?_method=PUT" method="POST">
+        <form action="/actividades/update/<%= actividades.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
             <section class="form-section">
                 <article class="form-items">
                     <label for="nombre">Nombre de la actividad:</label>
@@ -34,28 +34,18 @@
                     <input type="text" id="participantes" name="participantes" value="<%= actividades.participantes %>" placeholder="Cantidad de participantes" class="form-input">
                 </article>
                 <article class="form-items">
-                    <label for="categoria" >Categoria:</label>
-                    <select name="categoria"  id="categoria" class="form-input">
-                        <% if (actividades.categoria=="nuevo") {%>
-                        <option value="">Escoge la categoria</option>
-                        <option value="nuevo" selected>Nuevo</option>
-                        <option value="oferta">Actividad de temporada</option>
-                        <% } %>
-                        <% if (actividades.categoria=="oferta") {%>
-                            <option value="">Escoge la categoria</option>
-                            <option value="nuevo">Nuevo</option>
-                            <option value="oferta" selected>Actividad de temporada</option>
-                            <% } %>
-                    </select>
+                    <label for="tipo">Tipo:</label>
+                    <input type="text" id="tipo" name="tipo" placeholder="Participantes de la actividad" class="form-input">
                 </article>
-                <article class="form-items">
+
+                <!-- <article class="form-items">
                     <label for="descripcion">Descripcion:</label>
                     <textarea id="descripcion" name="descripcion"  class="text-area" > <%= actividades.descripcion %> </textarea>
-                </article>
-                <!-- <article class="form-items">
+                </article> -->
+                <article class="form-items">
                     <label for="imgPrincipal">Cargar imagen:</label>
                     <input type="file" id="imgPrincipal" name="imgPrincipal" multiple class="form-input">
-                </article> -->
+                </article>
             </section>
             
             <button type="submit" class="form-button">Actualizar actividad</button>

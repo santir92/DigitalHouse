@@ -13,13 +13,13 @@ router.get('/detalle/:nombre', controller.detalle)
 
 //crear una nueva actividad
 router.get('/create', controller.create)
-// router.post('/create', uploadFile.single('imgPrincipal'),controller.store)
-router.post('/create', controller.store)
+router.post('/create', uploadFile.single('imgPrincipal'),controller.store)
+// router.post('/create', controller.store)
 
 //actualizar actividad
 router.get('/update/:nombre', controller.update);
-// router.put("/update/:nombre", uploadFile.single('imgPrincipal'), controller.actualizar);
-router.put("/update/:id", controller.actualizar);
+router.put("/update/:id", uploadFile.single('imgPrincipal'), controller.actualizar);
+// router.put("/update/:id", controller.actualizar);
 
 //eliminar actividad
 router.delete("/update/:nombre", controller.delete);

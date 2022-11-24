@@ -177,4 +177,3 @@ INSERT INTO `Detalle_actividad` (`reserva_id`,`actividad_id`) VALUES
 ('2','1');
 INSERT INTO `Detalle_actividad` (`reserva_id`,`actividad_id`) VALUES
 ('2','2');
-
