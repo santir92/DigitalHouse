@@ -26,7 +26,7 @@
                 </article>
                 <article class="form-items">
                     <label for="precio">Precio:</label>
-                    <input type="text" id="precio" name="precio" value="<%= actividades.precio %>" placeholder="Precio de la actividad" class="form-input">
+                    <input type="text" id="precio" name="precio" value="<%= actividades.valor %>" placeholder="Precio de la actividad" class="form-input">
                 </article>
                 <article class="form-items">
                     <label for="participantes">Minimo de participantes:</label>
@@ -35,12 +35,12 @@
                 <article class="form-items">
                     <label for="categoria" >Categoria:</label>
                     <select name="categoria"  id="categoria" class="form-input">
-                        <% if (actividades.categoria=="nuevo") {%>
+                        <% if (actividades.tipo=="nuevo") {%>
                         <option value="">Escoge la categoria</option>
                         <option value="nuevo" selected>Nuevo</option>
                         <option value="oferta">Actividad de temporada</option>
                         <% } %>
-                        <% if (actividades.categoria=="oferta") {%>
+                        <% if (actividades.tipo=="oferta") {%>
                             <option value="">Escoge la categoria</option>
                             <option value="nuevo">Nuevo</option>
                             <option value="oferta" selected>Actividad de temporada</option>

@@ -1,24 +1,10 @@
-const fs = require('fs');
-const path = require('path');
 const bcryptjs = require('bcryptjs');
 const {validationResult} = require('express-validator');
-const User = require ('../models/User');
-
-const actividades = JSON.parse(fs.readFileSync(path.join(__dirname, '../database/actividades.json'), 'utf-8')) 
+const db = require('../../database/models');
 
 const controller = {
     home: (req, res) => {
         res.render('home')
-    },
-
-    actividad: (req, res) => {
-        let act = req.params.actividad
-        // console.log(act)
-        for (i = 0; i < actividades.length; i++){
-            if (actividades[i].nombre == act){
-                console.log(act)
-                res.render('actividadDetalle', {actividadParticular: actividades[i]})}
-            }   
     },
    
     register: (req, res) => {
@@ -36,28 +22,33 @@ const controller = {
             });
         }
         // se hace la validacion de que el email no este registrado, si lo esta ingresa al if
-        let userInDB = User.findUserByField('email', req.body.email);
         // al encontrar el email envia el msg de error indicando que ese email ya esta registrado
-        if(userInDB) {
-            return res.render('registro', {
-                errors: {
-                    email: {
-                        msg: 'Este email ya esta registrado'
-                    }
-                },
-                old:req.body
-            });
-        }   
-        //en caso que las validaciones no envien errores se crea el usuario en el que
-        //se pasan los datos del body, la imagen de y la contrasenia se pasa hasheada 
-        let userToCreate = {
-            ...req.body,
-            image: req.file.filename,
+        let emailRegistrado = req.body.email;
+        db.Persona.findAll()
+        .then((usuarios)=>{
+
+            for(u of usuarios){
+                if (u.email==emailRegistrado){
+                        res.render('registro', {
+                        errors: {
+                            email: {
+                                msg: 'Este email ya esta registrado'
+                            }
+                        },
+                        old:req.body
+                    });
+                }
+            }
+        }).then(()=>{
+        db.Persona.create( {
+            nombre: req.body.name,
+            email: req.body.email,
+            imagen: req.file.filename,
             password: bcryptjs.hashSync(req.body.password, 10),
-        }
-        // y se envia por medio del metodo create para registrarlo y quede en el JSON
-        User.create(userToCreate);
-        return res.redirect('/login')
+            username: req.body.username,
+        })
+        res.redirect('/login')
+    })
         
     },
 
@@ -66,37 +57,44 @@ const controller = {
     },
     
     loginProcess: (req, res) => {
+        // verificamos que el nombre de usuario este registrado para iniciar sesion sino enviar error
+        db.Persona.findOne({
+            where: {
+                username: req.body.username
+            }
+        }).then(userToLogin =>{
         //verificamos que el nombre de usuario este registrado para iniciar sesion sino enviar error
-        let userToLogin = User.findUserByField('username', req.body.username);
+        // let userToLogin = User.findUserByField('username', req.body.username);
         
-        if(userToLogin){
-            //comparar la contrasenia recordar que el primer parametro de compareSync es el texto plano y el segundo es la que se encuentra en la DB hasheada, si ambas coinciden permite el ingreso
-            let isOkPassword = bcryptjs.compareSync(req.body.password, userToLogin.password);
-            if(isOkPassword){
-                delete userToLogin.password;
-				req.session.userLogged = userToLogin;
-                // se setea la cookie para que aun cuando se cierre el navegador el usuario sea recordado por maximo 1 hora o el tiempo que se desee y cuando vuelva a ingresar ya este logueado
-                if(req.body.remember){
-                    res.cookie("userName", req.body.username, {maxAge: (1000 * 60) * 60})
-                }
+            if(userToLogin){
+                //comparar la contrasenia recordar que el primer parametro de compareSync es el texto plano y el segundo es la que se encuentra en la DB hasheada, si ambas coinciden permite el ingreso
+                let isOkPassword = bcryptjs.compareSync(req.body.password, userToLogin.password);
+                if(isOkPassword){
+                    delete userToLogin.password;
+                    req.session.userLogged = userToLogin;
+                    // se setea la cookie para que aun cuando se cierre el navegador el usuario sea recordado por maximo 1 hora o el tiempo que se desee y cuando vuelva a ingresar ya este logueado
+                    if(req.body.remember){
+                        res.cookie("userName", req.body.username, {maxAge: (1000 * 60) * 60})
+                    }
 
-                return res.redirect('/profile');
+                    return res.redirect('/profile');
+                }
+                return res.render('login', {
+                    errors: {
+                        username: {
+                            msg: 'Las credenciales son invalidas'
+                        }
+                    }
+                });
             }
             return res.render('login', {
                 errors: {
                     username: {
-                        msg: 'Las credenciales son invalidas'
+                        msg: 'Usuario no encontrado'
                     }
                 }
             });
-        }
-        return res.render('login', {
-            errors: {
-                username: {
-                    msg: 'Usuario no encontrado'
-                }
-            }
-        });
+        })
     },
     
     profile: (req, res) => {

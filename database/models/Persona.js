@@ -19,6 +19,9 @@ module.exports = function(sequelize, dataTypes){
         },
         username: {
             type: dataTypes.STRING(50)
+        },
+        imagen: {
+            type: dataTypes.STRING(50)
         }
     }
 

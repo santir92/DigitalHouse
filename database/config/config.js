@@ -1,9 +1,9 @@
 module.exports = {
   "development": {
-    "username": "root",
-    "password": null,
-    "database": "hosteria",
-    "host": "127.0.0.1",
+    "username": "g5dh",
+    "password": "DHg51122",
+    "database": "g5dh_hosteria",
+    "host": "mysql-g5dh.alwaysdata.net",
     "dialect": "mysql",
     "port": 3306
   },
