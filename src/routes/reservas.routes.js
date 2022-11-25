@@ -3,6 +3,7 @@ const router = express.Router();
 const controller = require('../controllers/reservasController')
 
 router.get('/', controller.reserva);
+router.post('/',controller.nuevareserva)
 
 // actualizar una reserva
 router.get('/update', controller.update)

@@ -23,7 +23,7 @@
 
         
 
-        <form action="create" method="POST" enctype="multipart/form-data">
+        <form action="carrito" method="POST" >
             <section class="form-section">
                 <article class="form-items">
                     <label for="nombre">Nombre Completo:</label>
@@ -31,8 +31,7 @@
                     
                         <div class="res">
                                 <article >
-                                    <h2>Actividad: </h2>
-                                   
+                                    <label for="nombre">Actividad:</label>                                                                  
                                     <select name="actividades" placeholder="Elegí tu actividad" class="form-input">
                                         <% for(let a of actividades) { %>
                                             <option value="1">  <%= a.nombre %></option> 
@@ -44,7 +43,7 @@
                             </a>
                         </div>
                         
-                    <label for="nombre">Actividad:</label>
+                    
                     
                     
                 </article>
