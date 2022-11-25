@@ -57,7 +57,7 @@ store: (req, res) => {
 
     db.Tipo_actividad.create({
  
-        tipo: req.body.tipo,
+        tipo: req.body.categoria,
         valor: req.body.valor,
         cantidad_maxima: req.body.participantes,
         imagen: req.file.filename,
@@ -65,44 +65,26 @@ store: (req, res) => {
         
     })
 
-    .then(function(){
-    let idBuscado 
-  
-    db.Tipo_actividad.findAll().then( function (respuesta){
-
-        for (r of respuesta){
-
-            if (r.tipo == req.body.tipo){
-                idBuscado = r.id
-                
-            }
-        
-        }
-        return idBuscado
-    }
-    )
-
-
-    .then( function (idBuscado){
+    .then(result => {
+ 
+    let ultimoId = result.id
+    
     db.Actividad.create({
 
         nombre: req.body.nombre,
         
-        tipo_actividad_id: idBuscado
+        tipo_actividad_id: ultimoId
     })
-    .then(function(){
+    .then(()=>{
         res.redirect('/actividades')
-    })
-    
-    
-})
+    })    
 })
 },
 
 update: (req, res) => {
     let nombreActividad = req.params.nombre;
     db.Actividad.findAll({include:[{association: 'tipo'}]})
-    .then((respuesta)=>{
+    .then(respuesta => {
         let todasLasActividades = respuesta
 
         let actividadParticular = {}
@@ -137,11 +119,11 @@ update: (req, res) => {
             nombre: req.params.nombre
         }
     })
-        .then(function(respuesta){
+        .then(respuesta => {
             idTipoActividad = respuesta.tipo_actividad_id
             return idTipoActividad
         })  
-    .then(function(idTipoActividad){
+    .then(idTipoActividad => {
     db.Actividad.update({        
         nombre: req.body.nombre,
     },
@@ -162,7 +144,7 @@ update: (req, res) => {
             id: idTipoActividad
         }
     })
-    .then(function(){
+    .then(() => {
     res.redirect('/actividades')
     })
 })

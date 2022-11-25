@@ -3,8 +3,8 @@ const path = require('path');
 const ejs = require('ejs');
 const db = require('../../database/models');
 
-const actividadesFilePath = path.join(__dirname, '../database/actividades.json');
-const actividades = JSON.parse(fs.readFileSync(actividadesFilePath, 'utf-8'));
+// const actividadesFilePath = path.join(__dirname, '../database/actividades.json');
+// const actividades = JSON.parse(fs.readFileSync(actividadesFilePath, 'utf-8'));
 
 
 const controller = {
