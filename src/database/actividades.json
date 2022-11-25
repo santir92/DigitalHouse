@@ -30,5 +30,13 @@
   "participantes": 2,
   "categoria": "nuevo",
   "descripcion": "  Disfruta de una gran escalada "
+ },
+ {
+  "nombre": "m",
+  "imgPrincipal": "1668724667311.jpg",
+  "precio": "4",
+  "participantes": "4",
+  "categoria": "nuevo",
+  "descripcion": " m"
  }
 ]

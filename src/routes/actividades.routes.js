@@ -15,9 +15,11 @@ router.get('/detalle/:nombre', controller.detalle)
 router.get('/create', controller.create)
 router.post('/create', uploadFile.single('imgPrincipal'),controller.store)
 
+
 //actualizar actividad
 router.get('/update/:nombre', controller.update);
 router.put("/update/:nombre", uploadFile.single('imgPrincipal'), controller.actualizar);
+
 
 //eliminar actividad
 router.delete("/update/:nombre", controller.delete);

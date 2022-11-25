@@ -10,21 +10,9 @@ module.exports = function (sequelize, Datatypes) {
         nombre: {
             type: Datatypes.STRING(20)
         },
-        tipo: {
-            type: Datatypes.STRING(20)
+        tipo_actividad_id: {
+            type: Datatypes.INTEGER
         },
-        valor: {
-            type: Datatypes.INTEGER(20)
-        },
-        cantidad_maxima: {
-            type: Datatypes.INTEGER(2)
-        },
-        imagen: {
-            type: Datatypes.STRING(50)
-        },
-        descripcion: {
-            type: Datatypes.STRING(500)
-        }
     };
 
     let config = {freezeTableName: true, camelCase: false, timestamps: false};
@@ -32,7 +20,10 @@ module.exports = function (sequelize, Datatypes) {
     const Actividad = sequelize.define(alias, cols, config);
 
     Actividad.associate = function(models){
-        
+        Actividad.belongsTo(models.Tipo_actividad, {
+            as: 'tipo',
+            foreignKey: 'tipo_actividad_id'
+        });
         Actividad.belongsToMany(models.Reserva, {
             as: 'reserva',
             through: 'Detalle_actividad',
