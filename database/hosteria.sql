@@ -1,0 +1,186 @@
+-- ---
+-- Globals
+-- ---
+
+-- SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+-- SET FOREIGN_KEY_CHECKS=0;
+
+-- ---
+-- Table 'Hosteria'
+-- 
+-- ---
+
+DROP TABLE IF EXISTS `Hosteria`;
+		
+CREATE TABLE `Hosteria` (
+  `id` INTEGER NOT NULL AUTO_INCREMENT ,
+  `nombre` VARCHAR(20) NOT NULL,
+  `dirección` VARCHAR(20) NOT NULL ,
+  `email` VARCHAR(50) NOT NULL,
+  `teléfono` VARCHAR(10) NOT NULL ,
+  PRIMARY KEY (`id`)
+);
+
+-- ---
+-- Table 'Hosteria_actividad'
+-- 
+-- ---
+
+DROP TABLE IF EXISTS `Hosteria_actividad`;
+		
+CREATE TABLE `Hosteria_actividad` (
+  `id` INTEGER NOT NULL AUTO_INCREMENT,
+  `hosteria_id` INTEGER NOT NULL,
+  `actividad_id` INTEGER NOT NULL,
+  PRIMARY KEY (`id`)
+);
+
+-- ---
+-- Table 'Detalle_actividad'
+-- 
+-- ---
+
+DROP TABLE IF EXISTS `Detalle_actividad`;
+		
+CREATE TABLE `Detalle_actividad` (
+  `id` INTEGER NOT NULL AUTO_INCREMENT,
+  `reserva_id` INTEGER NOT NULL,
+  `actividad_id` INTEGER NOT NULL,
+  PRIMARY KEY (`id`)
+);
+
+-- ---
+-- Table 'Actividad'
+-- 
+-- ---
+
+DROP TABLE IF EXISTS `Actividad`;
+		
+CREATE TABLE `Actividad` (
+  `id` INTEGER NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(20) NOT NULL,
+  `tipo_actividad_id` INTEGER NOT NULL,
+  PRIMARY KEY (`id`)
+);
+
+-- ---
+-- Table 'Tipo_actividad'
+-- 
+-- ---
+
+DROP TABLE IF EXISTS `Tipo_actividad`;
+		
+CREATE TABLE `Tipo_actividad` (
+  `id` INTEGER NOT NULL AUTO_INCREMENT,
+  `tipo` VARCHAR(20) NOT NULL,
+  `valor` INTEGER(20) NOT NULL,
+  `cantidad_maxima` INTEGER(2) NOT NULL,
+  `imagen` VARCHAR(50) NOT NULL,
+  `descripcion` VARCHAR(500),
+  PRIMARY KEY (`id`)
+);
+
+-- ---
+-- Table 'Reserva'
+-- 
+-- ---
+
+DROP TABLE IF EXISTS `Reserva`;
+		
+CREATE TABLE `Reserva` (
+  `id` INTEGER NOT NULL AUTO_INCREMENT,
+  `fecha_reserva` DATE NOT NULL,
+  `cantidad_personas` INTEGER(2) NOT NULL,
+  `horario` DATE NOT NULL,
+  `persona_id` INTEGER NOT NULL,
+  PRIMARY KEY (`id`)
+);
+
+-- ---
+-- Table 'Persona'
+-- 
+-- ---
+
+DROP TABLE IF EXISTS `Persona`;
+		
+CREATE TABLE `Persona` (
+  `id` INTEGER NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(50) NOT NULL,
+  `email` VARCHAR(50) NOT NULL,
+  `password` VARCHAR(100) NOT NULL,
+  `username` VARCHAR(50) NOT NULL,
+  `imagen` VARCHAR(50) NOT NULL,
+  PRIMARY KEY (`id`)
+);
+
+-- ---
+-- Foreign Keys 
+-- ---
+
+ALTER TABLE `Hosteria_actividad` ADD FOREIGN KEY (Hosteria_id) REFERENCES `Hosteria` (`id`);
+ALTER TABLE `Hosteria_actividad` ADD FOREIGN KEY (Actividad_id) REFERENCES `Actividad` (`id`);
+ALTER TABLE `Detalle_actividad` ADD FOREIGN KEY (Reserva_id) REFERENCES `Reserva` (`id`);
+ALTER TABLE `Detalle_actividad` ADD FOREIGN KEY (Actividad_id) REFERENCES `Actividad` (`id`);
+ALTER TABLE `Actividad` ADD FOREIGN KEY (Tipo_actividad_id) REFERENCES `Tipo_actividad` (`id`);
+ALTER TABLE `Reserva` ADD FOREIGN KEY (Persona_id) REFERENCES `Persona` (`id`);
+
+-- ---
+-- Table Properties
+-- ---
+
+-- ALTER TABLE `Hosteria` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE `Hosteria_actividad` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE `Detalle_actividad` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE `Actividad` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE `Tipo_actividad` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE `Reserva` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE `Persona` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- ---
+-- Test Data
+-- ---
+
+INSERT INTO `Hosteria` (`nombre`,`dirección`,`email`,`teléfono`) VALUES
+('Hard Rock','Pedro veltre 2321','jajajsahkcb@gmail.com','3143528072');
+INSERT INTO `Hosteria` (`nombre`,`dirección`,`email`,`teléfono`) VALUES
+('Hilton','Pedro veltre 21','jhasvdjvcb@gmail.com','3143528452');
+INSERT INTO `Tipo_actividad` (`tipo`,`valor`,`cantidad_maxima`,`imagen`,`descripcion`) VALUES
+('nuevo','300','4', 'cabalgata.jpg', 'Vive una experiencia donde podrás conocer pueblos cercanos y la biodiversidad de la naturaleza en todo esplendor');
+INSERT INTO `Tipo_actividad` (`tipo`,`valor`,`cantidad_maxima`, `imagen`,`descripcion`) VALUES
+('oferta','200','6', '1669349696246.jpeg', 'Disfruta de una gran escalada');
+INSERT INTO `Tipo_actividad` (`tipo`,`valor`,`cantidad_maxima`,`imagen`,`descripcion`) VALUES
+('nuevo','500','2','restaurante.jpg','Disfruta de nuestra opción de restaurante con una gran variedad de platos para que chicos y grandes puedan degustar');
+INSERT INTO `Tipo_actividad` (`tipo`,`valor`,`cantidad_maxima`,`imagen`,`descripcion`) VALUES
+('oferta','800','5','hiking.jpg','Disfruta de una gran caminata');
+INSERT INTO `Actividad` (`nombre`,`tipo_actividad_id`) VALUES
+('Cabalgata','1');
+INSERT INTO `Actividad` (`nombre`,`tipo_actividad_id`) VALUES
+('Escalada','2');
+INSERT INTO `Actividad` (`nombre`,`tipo_actividad_id`) VALUES
+('Restaurante','3');
+INSERT INTO `Actividad` (`nombre`,`tipo_actividad_id`) VALUES
+('Caminata','4');
+INSERT INTO `Hosteria_actividad` (`hosteria_id`,`actividad_id`) VALUES
+('2','1');
+INSERT INTO `Hosteria_actividad` (`hosteria_id`,`actividad_id`) VALUES
+('1','2');
+INSERT INTO `Persona` (`nombre`,`email`,`password`,`username`, `imagen`) VALUES
+('Santiago','santi@gmail.com','$2a$10$XVnUH6DXZflp.qo5gW6aT.LFKhL9FWjn3U7vkJy3tfixWgClVprd2','Santi',"1666924374971.jpg");
+INSERT INTO `Persona` (`nombre`,`email`,`password`,`username`, `imagen`) VALUES
+('Camilo','cami@gmail.com','$2a$10$hLq3tAj8mnPSqlMGtieN9.YOpQ0rONcvP043RUULVgc8NiN64ce2W','Cami',"1666924423045.jpg");
+INSERT INTO `Persona` (`nombre`,`email`,`password`,`username`, `imagen`) VALUES
+('Julian','jajerezc.jj@gmail.com','$2a$10$yCGuArC7d7QJsiRAJCf41.oVU/dxyfcZ7YkfTF6XSlbPSjEyHqgA2','Juli',"1666924453357.jpg");
+INSERT INTO `Persona` (`nombre`,`email`,`password`,`username`, `imagen`) VALUES
+('Matias','mati@gmail.com','$2a$10$hVnXiF6FyGJj2Yd.jdwZpO0Gi8d/ZkpWxClTj5w2uMXcTuqPKdqDW','Mati',"1666924143332.jpg");
+INSERT INTO `Reserva` (`fecha_reserva`,`cantidad_personas`,`horario`,`persona_id`) VALUES
+('2022-11-17','4','2022-11-18','2');
+INSERT INTO `Reserva` (`fecha_reserva`,`cantidad_personas`,`horario`,`persona_id`) VALUES
+('2022-11-17','3','2022-11-19','1');
+INSERT INTO `Detalle_actividad` (`reserva_id`,`actividad_id`) VALUES
+('1','1');
+INSERT INTO `Detalle_actividad` (`reserva_id`,`actividad_id`) VALUES
+('1','2');
+INSERT INTO `Detalle_actividad` (`reserva_id`,`actividad_id`) VALUES
+('2','1');
+INSERT INTO `Detalle_actividad` (`reserva_id`,`actividad_id`) VALUES
+('2','2');
