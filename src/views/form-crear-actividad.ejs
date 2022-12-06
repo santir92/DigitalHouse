@@ -22,23 +22,35 @@
             <section class="form-section">
                 <article class="form-items">
                     <label for="nombre">Nombre de la actividad:</label>
-                    <input type="text" id="nombre" name="nombre" placeholder="Nombre de la nueva actividad" class="form-input">
+                    <input type="text" id="nombre" name="nombre" value="<%= locals.old && old.nombre ? old.nombre : '' %>" placeholder="Nombre de la nueva actividad" class="form-input">
+                    <% if (locals.errors && errors.nombre) { %>
+                        <p class="errores"> <%= errors.nombre.msg %></p>
+                    <% } %>
                 </article>
                 <article class="form-items">
                     <label for="valor">Valor:</label>
-                    <input type="text" id="valor" name="valor" placeholder="Precio de la nueva actividad" class="form-input">
+                    <input type="text" id="valor" name="valor" value="<%= locals.old && old.valor ? old.valor : '' %>" placeholder="Precio de la nueva actividad" class="form-input">
+                    <% if (locals.errors && errors.valor) { %>
+                        <p class="errores"> <%= errors.valor.msg %></p>
+                    <% } %>
                 </article>
                 <article class="form-items">
                     <label for="participantes">Participantes:</label>
-                    <input type="text" id="participantes" name="participantes" placeholder="Participantes de la actividad" class="form-input">
+                    <input type="text" id="participantes" name="participantes" value="<%= locals.old && old.participantes ? old.participantes : '' %>" placeholder="Participantes de la actividad" class="form-input">
+                    <% if (locals.errors && errors.participantes) { %>
+                        <p class="errores"> <%= errors.participantes.msg %></p>
+                    <% } %>
                 </article>
                 <article class="form-items">
                     <label for="categoria">Categoria:</label>
                     <select name="categoria" id="categoria" class="form-input">
                         <option value="">Escoge la categoria</option>
-                        <option value="nuevo">Nuevo</option>
-                        <option value="oferta">Actividad de temporada</option>
+                        <option value="nuevo" <%= locals.old && old.categoria === 'nuevo' ? 'selected' : '' %>>Nuevo</option>
+                        <option value="oferta" <%= locals.old && old.categoria === 'oferta' ? 'selected' : '' %>>Actividad de temporada</option>
                     </select>
+                    <% if (locals.errors && errors.categoria) { %>
+                        <p class="errores"> <%= errors.categoria.msg %></p>
+                    <% } %>
                 </article>
                 <article class="form-items">
                     <label for="descripcion">Descripcion:</label>
@@ -48,6 +60,9 @@
                 <article class="form-items">
                     <label for="imgPrincipal">Cargar imagen:</label>
                     <input type="file" id="imgPrincipal" name="imgPrincipal" multiple class="form-input">
+                    <% if (locals.errors && errors.imgPrincipal) { %>
+                        <p class="errores"> <%= errors.imgPrincipal.msg %></p>
+                    <% } %>
                 </article>
             </section>
             

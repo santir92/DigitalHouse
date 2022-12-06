@@ -165,6 +165,11 @@ INICIO ESTILOS DEL FORM
 	background-color:#FF0000;
 }
 
+.errores {
+    color: #C81D11;
+    font-size: 1vw;
+}
+
 
 /*
 FIN ESTILOS DEL FORM

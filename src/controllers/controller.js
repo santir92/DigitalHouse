@@ -14,7 +14,7 @@ const controller = {
     registerProcess: (req, res) => {
         // esta variable guarda los errores que vengan de la validacion del middleware
         let resultValidation = validationResult(req);
-        // si la variable errores trae errores enviame los mensajes de error y no crea al usuario
+        // si la variable resultValidation trae errores enviame los mensajes de error y no crea al usuario
         if(resultValidation.errors.length > 0){   
                 return res.render('registro', {
                 errors: resultValidation.mapped(),

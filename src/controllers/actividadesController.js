@@ -1,5 +1,6 @@
 const ejs = require('ejs');
 const db = require('../../database/models');
+const {validationResult} = require('express-validator');
 
 const controller = {
 
@@ -55,8 +56,17 @@ create: (req, res) => {
 },
 store: (req, res) => {
 
+    let resultValidation = validationResult(req)
+
+    if(resultValidation.errors.length > 0){   
+        return res.render('form-crear-actividad', {
+        errors: resultValidation.mapped(),
+        old:req.body
+        });
+    } 
+
     db.Tipo_actividad.create({
- 
+
         tipo: req.body.categoria,
         valor: req.body.valor,
         cantidad_maxima: req.body.participantes,
@@ -66,19 +76,20 @@ store: (req, res) => {
     })
 
     .then(result => {
- 
-    let ultimoId = result.id
-    
-    db.Actividad.create({
 
-        nombre: req.body.nombre,
+        let ultimoId = result.id
         
-        tipo_actividad_id: ultimoId
+        db.Actividad.create({
+
+            nombre: req.body.nombre,
+            
+            tipo_actividad_id: ultimoId
+        })
+        .then(()=>{
+            res.redirect('/actividades')
+        })  
     })
-    .then(()=>{
-        res.redirect('/actividades')
-    })    
-})
+    
 },
 
 update: (req, res) => {
@@ -90,7 +101,7 @@ update: (req, res) => {
         let actividadParticular = {}
 
         for (h of todasLasActividades){
-            console.log(respuesta)
+            
             if (nombreActividad == h.nombre){
   
                 actividadParticular.nombre = h.nombre
@@ -112,7 +123,17 @@ update: (req, res) => {
 },
 
  actualizar: (req, res) =>{
-    let idUpdate = req.params.nombre
+
+    let resultValidation = validationResult(req)
+
+    if(resultValidation.errors.length > 0){   
+        return res.render('form-actualizar-actividad', {
+        errors: resultValidation.mapped(),
+        actividades:req.body
+        });
+    } 
+
+    
     let idTipoActividad
     db.Actividad.findOne({
         where: {
@@ -134,7 +155,7 @@ update: (req, res) => {
     })
     db.Tipo_actividad.update({
         tipo: req.body.categoria,
-        valor: req.body.precio,
+        valor: req.body.valor,
         cantidad_maxima: req.body.participantes,
         imagen: req.file.filename,
         descripcion: req.body.descripcion
