@@ -21,7 +21,7 @@
 
 
     
-    <form action="login" method="POST">
+    <form action="login" method="POST" id="form">
         <section class="main-section">
 
             <article class="container-css">
@@ -31,33 +31,37 @@
                     <a href=""><i class="fa-brands fa-google a-css"></i></a>
                     <a href=""><i class="fa-brands fa-linkedin-in a-css"></i></a>
                 </div>
-                    <div class="ingreso">
-                        <h3 class="h3-css">Nombre de usuario</h3>
-                        <input type="text" class="datos" name="username">
-                        <hr class="hr-css">
-                        <% if (locals.errors && errors.username) { %>
-                            <span class="errores"> <%= errors.username.msg %></span>
-                        <% } %>
-                        
-                        <h3 class="h3-css">Contraseña</h3>
-                        <input type="password" class="datos" name="password">
-                        <hr class="hr-css">
+                <div class="ingreso">
+                    <h3 class="h3-css">Nombre de usuario</h3>
+                    <input type="text" class="datos <%= locals.errors && errors.username ? 'warning' : null %>" id="username" name="username">
+                    <hr class="hr-css">
+                    <span id="userSpan"></span>
+                    <% if (locals.errors && errors.username) { %>
+                        <span class="errores"> <%= errors.username.msg %></span>
+                    <% } %>
+                    
+                    <h3 class="h3-css">Contraseña</h3>
+                    <input type="password" class="datos <%= locals.errors && errors.password ? 'warning' : null %>" id="password" name="password">
+                    <hr class="hr-css">
+                    <span id="passwordSpan"></span>
 
-                        <label class="datos" for="remember">
-                        <input type="checkbox" id="remember"  name="remember"> Recordar usuario
-                        </label>                    
-                    </div>
-                    <button type="submit" class="btn-inicio a-css">Iniciar</button>
-                </article>
+                    <label class="datos" for="remember">
+                    <input type="checkbox" id="remember"  name="remember"> Recordar usuario
+                    </label>                    
+                </div>
+                <button type="submit" class="btn-inicio a-css">Iniciar</button>
+            </article>
                 
-                <article class="registro">
-                    <h2 class="h2-css">¿Eres nuevo?</h2>
-                    <p class="invitacion">Ingresa tus datos personales para abrir una cuenta con nosotros.</p>
-                    <button class="btn-registro"><a href="register" class="a-css">Registrate</a></button>
-                </article>
-            </section>
-        </form>
-            
+            <article class="registro">
+                <h2 class="h2-css">¿Eres nuevo?</h2>
+                <p class="invitacion">Ingresa tus datos personales para abrir una cuenta con nosotros.</p>
+                <button class="btn-registro"><a href="register" class="a-css">Registrate</a></button>
+            </article>
+        </section>
+    </form>
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../alerts/frontendalerts.js"></script>
 
     <%- include('./partials/footer.ejs') %>
     

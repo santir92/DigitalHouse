@@ -168,6 +168,7 @@ ul {
 
 .warning {
     border: #C81D11 solid thin;
+    box-shadow: 0 0 10px #C81D11;
 }
 
 @media (min-width: 600px) {
