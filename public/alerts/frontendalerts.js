@@ -21,6 +21,10 @@ password.addEventListener("blur", () => {
         password.classList.add('warning');
         passwordSpan.classList.add('errores')
         passwordSpan.innerText = "La contraseña es requerida"
+    } else if(password.value.trim().length < 8){
+        password.classList.add('warning');
+        passwordSpan.classList.add('errores')
+        passwordSpan.innerText = "La contraseña debe contener minimo 8 caracteres"
     } else {
         password.classList.remove('warning');
         passwordSpan.classList.remove('errores')
@@ -42,10 +46,7 @@ formulario.addEventListener('submit', (e)=> {
             showConfirmButton: false,
             timer: 1500
           })
-
     }
-
-    //formulario.submit();
 
 })
 
