@@ -1,7 +1,7 @@
 {
   "name": "sprint2",
   "version": "1.0.0",
-  "description": "",
+  "description": "Proponer hospedaje en una Estancia / Casa de Campo, con el agregado de ofrecer\r actividades vinculadas con el campo, la naturaleza y bienestar.",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -22,5 +22,14 @@
     "nodemon": "^2.0.20",
     "sequelize": "^6.25.5",
     "sequelize-cli": "^6.5.2"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/santir92/DigitalHouse.git"
+  },
+  "bugs": {
+    "url": "https://github.com/santir92/DigitalHouse/issues"
+  },
+  "homepage": "https://github.com/santir92/DigitalHouse#readme"
 }

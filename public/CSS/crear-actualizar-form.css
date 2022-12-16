@@ -17,6 +17,17 @@ h1 {
 /*
 INICIO ESTILOS DEL HEADER
 */
+
+.errores {
+    color: #C81D11;
+    font-size: .8vw;
+    display: block;
+}
+
+.warning {
+    border: #C81D11 solid thin;
+    box-shadow: 0 0 10px #C81D11;
+}
 .barra-superior {
     box-sizing: border-box;
     background-color: rgba(0,0,0,0.75);

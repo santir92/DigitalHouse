@@ -23,6 +23,7 @@
                 <article class="form-items">
                     <label for="nombre">Nombre de la actividad:</label>
                     <input type="text" id="nombre" name="nombre" value="<%= locals.old && old.nombre ? old.nombre : '' %>" placeholder="Nombre de la nueva actividad" class="form-input">
+                    <span id="nombreSpan"></span>
                     <% if (locals.errors && errors.nombre) { %>
                         <p class="errores"> <%= errors.nombre.msg %></p>
                     <% } %>
@@ -30,6 +31,7 @@
                 <article class="form-items">
                     <label for="valor">Valor:</label>
                     <input type="text" id="valor" name="valor" value="<%= locals.old && old.valor ? old.valor : '' %>" placeholder="Precio de la nueva actividad" class="form-input">
+                    <span id="valorSpan"></span>
                     <% if (locals.errors && errors.valor) { %>
                         <p class="errores"> <%= errors.valor.msg %></p>
                     <% } %>
@@ -37,6 +39,7 @@
                 <article class="form-items">
                     <label for="participantes">Participantes:</label>
                     <input type="text" id="participantes" name="participantes" value="<%= locals.old && old.participantes ? old.participantes : '' %>" placeholder="Participantes de la actividad" class="form-input">
+                    <span id="participantesSpan"></span>
                     <% if (locals.errors && errors.participantes) { %>
                         <p class="errores"> <%= errors.participantes.msg %></p>
                     <% } %>
@@ -48,6 +51,7 @@
                         <option value="nuevo" <%= locals.old && old.categoria === 'nuevo' ? 'selected' : '' %>>Nuevo</option>
                         <option value="oferta" <%= locals.old && old.categoria === 'oferta' ? 'selected' : '' %>>Actividad de temporada</option>
                     </select>
+                    <span id="categoriaSpan"></span>
                     <% if (locals.errors && errors.categoria) { %>
                         <p class="errores"> <%= errors.categoria.msg %></p>
                     <% } %>
@@ -60,6 +64,7 @@
                 <article class="form-items">
                     <label for="imgPrincipal">Cargar imagen:</label>
                     <input type="file" id="imgPrincipal" name="imgPrincipal" multiple class="form-input">
+                    <span id="imgPrincipalSpan"></span>
                     <% if (locals.errors && errors.imgPrincipal) { %>
                         <p class="errores"> <%= errors.imgPrincipal.msg %></p>
                     <% } %>
@@ -70,6 +75,9 @@
                 
         </form >
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../alerts/creaActividadAlert.js"></script><script src=".."></script>
 
     <%- include('./partials/footer.ejs') %>
     
