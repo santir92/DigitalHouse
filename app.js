@@ -7,11 +7,13 @@ const cookies = require('cookie-parser')
 const router = require('./src/routes/index.routes')
 const actividadesRouter = require('./src/routes/actividades.routes')
 const reservasRouter = require('./src/routes/reservas.routes')
+const APIRouter = require('./src/routes/APIRoutes')
 
 //para usar put y delete
 const methodOverride = require('method-override')
 //Middleware global/nivel app
 const userLoggedMiddleware = require('./src/middlewares/userLoggedMiddleware')
+const APIcontroller = require('./src/controllers/APIcontroller')
 
 // Definición app
 const app = express()
@@ -52,3 +54,6 @@ app.use('/actividades', actividadesRouter)
 
 app.use ('/carrito', reservasRouter)
 
+// API
+
+app.use('/API', APIRouter)
