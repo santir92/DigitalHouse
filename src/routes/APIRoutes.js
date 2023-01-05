@@ -16,4 +16,10 @@ router.get('/usuario/:id', APIcontroller.particular)
 
 router.get('/actividades', APIcontroller.actividades)
 
+// router.get('/tipo', APIcontroller.tipo)
+
+router.get('/totalCategorias', APIcontroller.totalCategorias)
+
+router.get('/actividad/:id', APIcontroller.particularProduct)
+
 module.exports = router
