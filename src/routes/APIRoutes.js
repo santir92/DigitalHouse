@@ -22,4 +22,16 @@ router.get('/totalCategorias', APIcontroller.totalCategorias)
 
 router.get('/actividad/:id', APIcontroller.particularProduct)
 
+// Dashboard
+
+router.get('/totalusuarios', APIcontroller.totalUsuarios) 
+
+router.get('/totalproductos', APIcontroller.totalProductos) 
+
+router.get('/ultimoUsuario', APIcontroller.ultimoUsuario) 
+
+router.get('/ultimoProducto', APIcontroller.ultimoProducto) 
+
+router.get('/categorias', APIcontroller.Categorias) 
+
 module.exports = router

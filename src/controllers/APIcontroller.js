@@ -129,6 +129,107 @@ const APIcontroller = {
     })
     })
     },
+
+    // Dashboard
+
+    totalUsuarios: (req, res) => {
+        db.Persona.findAll()
+        .then(function (respuesta){
+           
+            res.json({
+                total: respuesta.length
+            })
+        })
+
+    },
+    totalProductos: (req, res) => {
+        db.Actividad.findAll()
+        .then(function (respuesta){
+           
+            res.json({
+                total: respuesta.length
+            })
+        })
+
+    },
+    ultimoUsuario: (req, res) => {
+        db.Persona.findAll()
+        .then(function (respuesta){
+
+            let userId = []
+
+            for (r of respuesta){
+                userId.push(r.id)
+            }
+            
+            let lastUser = userId.pop()
+
+            db.Persona.findByPk(lastUser)
+            .then(function (resp){
+                console.log(resp)
+                res.json({
+                    id: resp.id,
+                    nombre: resp.nombre,
+                    email: resp.email,
+                    usuario: resp.username
+                })
+            })
+
+        })
+
+    },
+    ultimoProducto: (req, res) => {
+        db.Actividad.findAll()
+        .then(function (respuesta){
+
+            let actividadId = []
+
+            for (r of respuesta){
+                actividadId.push(r.id)
+            }
+            
+            let lastActivity = actividadId.pop()
+
+            db.Actividad.findByPk(lastActivity)
+            .then(function (resp){
+
+                db.Tipo_actividad.findByPk(lastActivity)
+                .then(function (respt){
+                
+                res.json({
+                    // actividad: act,
+                    // detalle: resp,
+                    id: resp.id,
+                    nombre: resp.nombre,
+                    tipo: respt.tipo,
+                    valor: respt.valor,
+                    cantidad_maxima: respt.cantidad_maxima,
+                    imagen: respt.imagen,
+                    descripcion: respt.descripcion,
+                })
+            })
+                
+            })
+
+        })
+
+    },
+    Categorias: (req, res) => {
+        db.Tipo_actividad.findAll()
+        .then(function (respuesta){
+           
+            let tipos = []
+            for (r of respuesta){
+                if (!tipos.includes(r.tipo)){
+                    tipos.push(r.tipo)
+                } 
+            }
+            res.json({
+                categorias: tiposTt
+            })
+        })
+
+    },
     
 }
 
