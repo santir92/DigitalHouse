@@ -8,6 +8,7 @@ const router = require('./src/routes/index.routes')
 const actividadesRouter = require('./src/routes/actividades.routes')
 const reservasRouter = require('./src/routes/reservas.routes')
 const APIRouter = require('./src/routes/APIRoutes')
+const cors = require('cors')
 
 //para usar put y delete
 const methodOverride = require('method-override')
@@ -24,6 +25,8 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }));
+
+app.use(cors())
 
 app.use(cookies()); 
 

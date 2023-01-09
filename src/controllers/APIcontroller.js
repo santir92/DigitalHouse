@@ -225,7 +225,7 @@ const APIcontroller = {
                 } 
             }
             res.json({
-                categorias: tiposTt
+                categorias: tipos
             })
         })
 
