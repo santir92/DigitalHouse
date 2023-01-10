@@ -97,10 +97,10 @@
             
 
         </section> 
-        <% if (locals.isLogged) { %>
+        <!-- -->
         <a type="submit" class = 'botonmodif' href="/actividades/update/<%= actividad.nombre%>">MODIFICAR ACTIVIDAD</a>
-        <a type="submit" class = 'botonmodif' href="/carrito">RESERVAR ACTIVIDAD</a>
-        <% } %>
+        <button  class = 'botonmodif' href="/carrito" onclick="agregarCarrito('<%= actividad.nombre%>', '<%= actividad.tipo.valor%>')"> RESERVAR ACTIVIDAD</button>
+        <!--  -->
         
 
     </main>
@@ -109,6 +109,6 @@
     <!-- FOOTER -->
 
     <%- include('./partials/footer.ejs') %>
-    
+    <script src='/js/agregarCarrito.js'></script>
 </body>
 </html>

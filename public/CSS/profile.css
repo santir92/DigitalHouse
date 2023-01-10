@@ -138,6 +138,26 @@ ul {
     box-shadow: 1rem 1rem 2rem 0.5rem #0007;
 }
 
+.carrito {
+    padding: 15px ;
+    background-color: rgba(0, 0, 0, 0.65);
+    text-align: center;
+    border: solid 10px rgba(0, 0, 0, 0.90);
+    color:#FFF;
+
+}
+.pago {
+	background-color:#FFF;
+	border-radius:28px;
+	border:1px solid #18ab29;
+	display:inline-block;
+	cursor:pointer;
+	font-size:1.3vw;
+	padding:16px 31px;
+	text-decoration:none;
+    
+    
+}
 
 /*Fin estilos imagen de perfil*/
         
