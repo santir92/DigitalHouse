@@ -2,6 +2,8 @@ const ejs = require('ejs');
 const db = require('../../database/models');
 const {validationResult} = require('express-validator');
 
+
+
 const controller = {
 
 activities: (req, res) => {
