@@ -9,5 +9,8 @@ function agregarCarrito(nombre, precio){
     }
     sumarProducto.push(producto);
     console.log(sumarProducto);
-    sessionStorage.setItem('productos', JSON.stringify(producto))
+    localStorage.setItem('productos', JSON.stringify(producto));
+    location.href = 'https://hosteria-dh.onrender.com/profile'
     } 
+
+
