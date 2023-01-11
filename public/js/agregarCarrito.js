@@ -10,7 +10,7 @@ function agregarCarrito(nombre, precio){
     sumarProducto.push(producto);
     console.log(sumarProducto);
     localStorage.setItem('productos', JSON.stringify(producto));
-    location.href = 'https://hosteria-dh.onrender.com/profile'
+    location.href = 'https://hosteria-dh.onrender.com/carrito'
     } 
 
 
